@@ -16,11 +16,13 @@ h1,h2,h3 {
 }
 
 /* a {color: #007700;} */
-a {color: #7000aa;}
+/* a {color: #7000aa;} */
+a {color: #aa2000;}
 
 h1 {
     /* color: #007700; */
-    color: #7000aa;
+    /* color: #7000aa; */
+    color: #aa2000;
     text-align: center;
     padding-bottom: 0;
     margin-bottom: 0;
