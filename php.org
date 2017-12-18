@@ -170,7 +170,7 @@ $mixedTypes = ["hello", 12, [132, "yes"], 28.22, "bye", true];
 
 Use the array_push() function to add elements to an array. This changes the value of the array in-place (rather than returning the changed array):
 
-#+HTML:<div class="wider">
+#+HTML:<div class="wide">
 #+BEGIN_SRC php
 echo $weekDays; // ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
