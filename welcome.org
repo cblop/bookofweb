@@ -1,0 +1,10 @@
+#+TITLE:The Book of Web
+#+HTML:<br>
+
+|  | [[./index.html][Table of contents]] | [[./environment.html][Setting up your environment ▶]] |
+| <l>    | <c>               |                           <r> |
+
+** Welcome!
+
+Welcome to the wonderful world of web development.
+

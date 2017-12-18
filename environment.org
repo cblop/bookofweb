@@ -1,0 +1,15 @@
+#+TITLE:The Book of Web
+#+HTML:<br>
+
+| [[./welcome.html][◀ Welcome!]] | [[./index.html][Table of contents]] | [[./index.html][The three-tier web architecture ▶]] |
+| <l>    | <c>               |                           <r> |
+
+** Setting Up Your Environment
+*** Docker
+:PROPERTIES:
+:CUSTOM_ID: docker
+:END:
+*** Text editor
+:PROPERTIES:
+:CUSTOM_ID: text_editor
+:END:

@@ -5,10 +5,10 @@
 
 ** Table of Contents
 *** 1. Introduction
-- Welcome!
-- Setting up your environment
-  - Docker
-  - Text Editor
+- [[./welcome.html][Welcome!]]
+- [[./environment.html][Setting up your environment]]
+  - [[./environment.html#docker][Docker]]
+  - [[./environment.html#text_editor][Text Editor]]
 - The three-tier web architecture
 
 *** 2. The Presentation Layer

@@ -34,6 +34,28 @@ hr {
     background: #aaa;
 }
 
+table {
+    width: 100%;
+}
+
+td{
+    width: 33%;
+}
+
+.org-left {
+    text-align: left;
+}
+
+.org-center {
+    
+    text-align: center;
+}
+
+.org-right {
+    
+    text-align: right;
+}
+
 blockquote {
     font-style: italic;
 }
