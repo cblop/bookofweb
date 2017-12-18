@@ -68,7 +68,7 @@ img {
 
 .src {
     color: #fff;
-    font-size: 1.2em/1.62;
+    font: 1.2em/1.62 monospace;
     background-color: #333;
     padding: 20px;
     width: 100%;
