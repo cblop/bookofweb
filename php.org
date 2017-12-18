@@ -107,6 +107,7 @@ $nullVal = NULL; // NULL
 ** Conditional Statements
 PHP has if, elseif and else statements, they work the same way as almost every other language:
 
+#+HTML:<div class="wide">
 #+BEGIN_SRC php
 $food = "curry";
 
@@ -131,6 +132,7 @@ if ($food == "pasta") {
     echo "I don't like pasta"; // this code is executed if $food is NEITHER "pasta" or "curry"
 }
 #+END_SRC
+#+HTML:</div>
 
 ** While Loops
 A while loop will keep repeating while the condition is true:
@@ -168,6 +170,7 @@ $mixedTypes = ["hello", 12, [132, "yes"], 28.22, "bye", true];
 
 Use the array_push() function to add elements to an array. This changes the value of the array in-place (rather than returning the changed array):
 
+#+HTML:<div class="wider">
 #+BEGIN_SRC php
 echo $weekDays; // ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
@@ -175,6 +178,7 @@ array_push($weekDays, "Saturday", "Sunday"); // Note that this takes each new el
 
 echo $weekDays; // ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 #+END_SRC
+#+HTML:</div>
 
 ** Foreach loops
    
@@ -193,9 +197,11 @@ Each time it goes through the loop, $w is given the value of an element from the
  
 Associative arrays (also called "Hash maps" or "Dictionaries" in other languages) hold sets of keys and values. A key is used to look up a value that is associated with it. For example:
 
+#+HTML:<div class="wide">
 #+BEGIN_SRC php
 $person = ["name" => "Matt", "age" => 32, "height" => "186cm", "favourite_food" => "curry"];
 #+END_SRC
+#+HTML:</div>
 
 The "fat arrow" (=>) goes between each key - value pair, so the template is:
 
