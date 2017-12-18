@@ -1,0 +1,63 @@
+#+TITLE:The Book of Web
+#+HTML:<br>
+
+| [[./#][◀ The three-tier web architecture]] | [[./index.html][Table of contents]] | [[./#][CSS ▶]] |
+| <l>    | <c>               |                           <r> |
+
+** Basic HTML forms
+
+HTML forms are created using the ~<form>~ tag:
+
+#+BEGIN_SRC html
+<form action="script.php">
+<\form>
+#+END_SRC
+
+The "action" parameter specifies the name of the PHP file that the form data will be sent to.
+
+*** Text Boxes
+
+Use the ~<input>~ tag to create textboxes:
+
+#+BEGIN_SRC html
+<form action="script.php">
+  <input type="text" name="username">
+<\form>
+#+END_SRC
+
+When the user submits the form (using the "submit" button described below), the contents of this textbox are sent to the "script.php" page where they can be retrieved with ~$_GET['username']~, [[./php.html#php_superglobals][as described in the "superglobals section]].
+
+Other types of text box can be added using the ~type~ attribute:
+
+#+BEGIN_SRC html
+<form action="script.php">
+  <input type="text" name="username">
+  <input type="number" name="height">
+  <input type="date" name="birthday">
+<\form>
+#+END_SRC
+
+In the above examples, the "height" textbox accepts numbers as input, and the "birthday" textbox makes it easy to enter dates.
+
+*** Submit button
+
+Once the user has entered information into the form, they need to be able to submit it for processing. This is done with the "submit" button:
+
+#+BEGIN_SRC html
+<input type="submit" name="Submit">
+#+END_SRC
+
+This goes into the form, usually as the last item:
+
+#+BEGIN_SRC html
+<form action="script.php">
+  <input type="text" name="username">
+  <input type="number" name="height">
+  <input type="date" name="birthday">
+  <input type="submit" name="Submit">
+<\form>
+#+END_SRC
+
+The ~name~ attribute is both the button's label and its identifier when accessed with [[./php.html#php_superglobals][superglobal variables]].
+
+When the button is clicked, all of the form's information is sent to the page specified with the form's ~action~ parameter (in this case, /script.php/). The default way to send it is using a /GET/ request, which I will now explain.

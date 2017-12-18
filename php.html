@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Book of Web</title>
+<meta name="generator" content="Org mode">
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<header>
+<h1 class="title">The Book of Web</h1>
+</header><br>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-center">
+
+<col  class="org-right">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><a href="./#">◀ MySQL</a></td>
+<td class="org-center"><a href="./index.html">Table of contents</a></td>
+<td class="org-right"><a href="./#">AJAX ▶</a></td>
+</tr>
+</tbody>
+</table>
+
+<div id="outline-container-org082454a" class="outline-2">
+<h2 id="org082454a">PHP</h2>
+<div class="outline-text-2" id="text-org082454a">
+<p>
+This chapter covers:
+</p>
+
+<ul class="org-ul">
+<li>Printing values to HTML</li>
+<li>Variables</li>
+<li>Strings and concatenation</li>
+<li>Arithmetic operators</li>
+<li>Conditional statements (if, elseif, else)</li>
+<li>While and for loops</li>
+<li>Arrays</li>
+<li>Foreach loops</li>
+<li>Associative arrays</li>
+<li>How to use PHP code to connect to MySQL databases</li>
+<li>Generating SQL queries with PHP</li>
+<li>Creating new databases with PHP</li>
+<li>Using PHP to add tables to your database</li>
+<li>Using HTML forms to add new database items</li>
+</ul>
+
+<p>
+PHP files always end in .php, but they can also contain HTML code
+You just need to start with this tag:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F92672;">&lt;?php</span>
+</pre>
+</div>
+
+<p>
+&#x2026;and finish with this tag:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #AE81FF;">?&gt;</span>
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7de546f" class="outline-3">
+<h3 id="org7de546f">Printing</h3>
+<div class="outline-text-3" id="text-org7de546f">
+<p>
+To print something in PHP, use the "echo" function:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"Hello, PHP!"</span>;
+</pre>
+</div>
+
+<p>
+To print a newline character, insert an HTML &lt;br&gt;:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"Hi,&lt;br&gt;How is it going?"</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org66b17cb" class="outline-3">
+<h3 id="org66b17cb">Variables</h3>
+<div class="outline-text-3" id="text-org66b17cb">
+<p>
+To declare a variable, its name must start with a dollar sign ($)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">age</span> = <span style="color: #AE81FF;">32</span>;
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">myName</span> = <span style="color: #E6DB74;">"Matt"</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org57afe91" class="outline-3">
+<h3 id="org57afe91">String Concatenation</h3>
+<div class="outline-text-3" id="text-org57afe91">
+<p>
+To print strings and variables, put a dot (.) between them:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"My name is "</span> . <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">myName</span> . <span style="color: #E6DB74;">" and my age is "</span> . <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">age</span> . <span style="color: #E6DB74;">"&lt;br&gt;"</span>;
+</pre>
+</div>
+
+<p>
+A quick way to insert variables inside your strings is to put them inside double quotes ("). This doesn't work with single quotes, though:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"My name is </span><span style="color: #FD971F;">$myName</span><span style="color: #E6DB74;"> and my age is </span><span style="color: #FD971F;">$age</span><span style="color: #E6DB74;">&lt;br&gt;"</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5e64157" class="outline-3">
+<h3 id="org5e64157">Arithmetic</h3>
+<div class="outline-text-3" id="text-org5e64157">
+<p>
+PHP has all the usual arithmetic operators:
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #AE81FF;">2</span> + <span style="color: #AE81FF;">3</span>;
+<span style="color: #AE81FF;">3</span> - <span style="color: #AE81FF;">4</span>;
+<span style="color: #AE81FF;">3</span> * <span style="color: #AE81FF;">3</span>;
+<span style="color: #AE81FF;">44</span> / <span style="color: #AE81FF;">3</span>;
+<span style="color: #AE81FF;">23</span> % <span style="color: #AE81FF;">4</span>;
+</pre>
+</div>
+
+<p>
+But it also arithmetic assignment operators. These change the value of a variable in place:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">x</span> = <span style="color: #AE81FF;">1</span>;
+
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">x</span>++; <span style="color: #75715E;">// </span><span style="color: #75715E;">now x is 2</span>
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">x</span> += <span style="color: #AE81FF;">1</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">now x = 3</span>
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">x</span> -= <span style="color: #AE81FF;">4</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">now x = -1</span>
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">x</span> *= -<span style="color: #AE81FF;">4</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">now x = 4</span>
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">x</span> /= <span style="color: #AE81FF;">4</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">now x = 1</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org45147de" class="outline-3">
+<h3 id="org45147de">Data Types</h3>
+<div class="outline-text-3" id="text-org45147de">
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">myName</span> = <span style="color: #E6DB74;">"Matt"</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">string</span>
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">myAge</span> = <span style="color: #AE81FF;">32</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">integer</span>
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">myHeight</span> = <span style="color: #AE81FF;">186.4</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">double</span>
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">isTeacher</span> = <span style="color: #AE81FF;">true</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">bool</span>
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">nullVal</span> = <span style="color: #AE81FF;">NULL</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">NULL</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgab5ccea" class="outline-3">
+<h3 id="orgab5ccea">Conditional Statements</h3>
+<div class="outline-text-3" id="text-orgab5ccea">
+<p>
+PHP has if, elseif and else statements, they work the same way as almost every other language:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">food</span> = <span style="color: #E6DB74;">"curry"</span>;
+
+<span style="color: #75715E;">// </span><span style="color: #75715E;">if statement:</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">food</span> == <span style="color: #E6DB74;">"pasta"</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+    <span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"I like pasta"</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">this code is executed if $food is "pasta"</span>
+<span style="color: #AE81FF;">}</span>
+
+<span style="color: #75715E;">// </span><span style="color: #75715E;">if and else statements:</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">food</span> == <span style="color: #E6DB74;">"pasta"</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+    <span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"I like pasta"</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">this code is executed if $food is "pasta"</span>
+<span style="color: #AE81FF;">}</span> <span style="color: #F92672;">else</span> <span style="color: #AE81FF;">{</span>
+    <span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"I don't like pasta"</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">this code is executed if $food is NOT "pasta"</span>
+<span style="color: #AE81FF;">}</span>
+
+<span style="color: #75715E;">// </span><span style="color: #75715E;">if, elseif and else statements:</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">food</span> == <span style="color: #E6DB74;">"pasta"</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+    <span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"I like pasta"</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">this code is executed if $food is "pasta"</span>
+<span style="color: #AE81FF;">}</span> <span style="color: #F92672;">elseif</span> <span style="color: #AE81FF;">(</span><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">food</span> == <span style="color: #E6DB74;">"curry"</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+    <span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"I like curry"</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">this code is executed if $food is "curry"</span>
+<span style="color: #AE81FF;">}</span> <span style="color: #F92672;">else</span> <span style="color: #AE81FF;">{</span>
+    <span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"I don't like pasta"</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">this code is executed if $food is NEITHER "pasta" or "curry"</span>
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8acd8fd" class="outline-3">
+<h3 id="org8acd8fd">While Loops</h3>
+<div class="outline-text-3" id="text-org8acd8fd">
+<p>
+A while loop will keep repeating while the condition is true:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">cond</span> = <span style="color: #AE81FF;">true</span>;
+
+<span style="color: #F92672;">while</span> <span style="color: #AE81FF;">(</span><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">cond</span> == <span style="color: #AE81FF;">true</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+    <span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"This code will print over and over.&lt;br&gt;"</span>;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org927782b" class="outline-3">
+<h3 id="org927782b">For Loops</h3>
+<div class="outline-text-3" id="text-org927782b">
+<p>
+A for loop has three parameters: some initial statement, a conditional statement which stops the loop if false, and a statement which run after every loop:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F92672;">for</span> <span style="color: #AE81FF;">(</span><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">i</span> = <span style="color: #AE81FF;">0</span>; <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">i</span> &lt; <span style="color: #AE81FF;">10</span>; <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">i</span>++<span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+    <span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"i is "</span> . <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">i</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">this will print numbers from 0 to 9</span>
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2c18eb6" class="outline-3">
+<h3 id="org2c18eb6">Arrays</h3>
+<div class="outline-text-3" id="text-org2c18eb6">
+<p>
+To create an array variable in PHP, put the elements inside square brackets and separate them with commas:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">weekDays</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">"Monday"</span>, <span style="color: #E6DB74;">"Tuesday"</span>, <span style="color: #E6DB74;">"Wednesday"</span>, <span style="color: #E6DB74;">"Thursday"</span>, <span style="color: #E6DB74;">"Friday"</span><span style="color: #AE81FF;">]</span>;
+</pre>
+</div>
+
+<p>
+As PHP is a <i>dynamic</i> language, you can mix different types in the same array:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">mixedTypes</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">"hello"</span>, <span style="color: #AE81FF;">12</span>, <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">132</span>, <span style="color: #E6DB74;">"yes"</span><span style="color: #66D9EF;">]</span>, <span style="color: #AE81FF;">28.22</span>, <span style="color: #E6DB74;">"bye"</span>, <span style="color: #AE81FF;">true</span><span style="color: #AE81FF;">]</span>;
+</pre>
+</div>
+
+<p>
+Use the array<sub>push</sub>() function to add elements to an array. This changes the value of the array in-place (rather than returning the changed array):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F92672;">echo</span> <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">weekDays</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]</span>
+
+array_push<span style="color: #AE81FF;">(</span><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">weekDays</span>, <span style="color: #E6DB74;">"Saturday"</span>, <span style="color: #E6DB74;">"Sunday"</span><span style="color: #AE81FF;">)</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">Note that this takes each new element as an extra argument</span>
+
+<span style="color: #F92672;">echo</span> <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">weekDays</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc52946f" class="outline-3">
+<h3 id="orgc52946f">Foreach loops</h3>
+<div class="outline-text-3" id="text-orgc52946f">
+<p>
+<i>Foreach</i> loops are a very convenient way to go through each element of an array:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #75715E;">// </span><span style="color: #75715E;">this prints each element of the $weekDays array</span>
+<span style="color: #F92672;">foreach</span> <span style="color: #AE81FF;">(</span><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">weekDays</span> <span style="color: #F92672;">as</span> <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">w</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #F92672;">echo</span> <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">w</span> . <span style="color: #E6DB74;">"&lt;br&gt;"</span>;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+
+<p>
+Each time it goes through the loop, $w is given the value of an element from the array. So in this case, the first time round $w = "Monday", then $w = "Tuesday", then $w = "Wednesday", etc.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga9681ce" class="outline-3">
+<h3 id="orga9681ce">Associative Arrays</h3>
+<div class="outline-text-3" id="text-orga9681ce">
+<p>
+Associative arrays (also called "Hash maps" or "Dictionaries" in other languages) hold sets of keys and values. A key is used to look up a value that is associated with it. For example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">person</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">"name"</span> =&gt; <span style="color: #E6DB74;">"Matt"</span>, <span style="color: #E6DB74;">"age"</span> =&gt; <span style="color: #AE81FF;">32</span>, <span style="color: #E6DB74;">"height"</span> =&gt; <span style="color: #E6DB74;">"186cm"</span>, <span style="color: #E6DB74;">"favourite_food"</span> =&gt; <span style="color: #E6DB74;">"curry"</span><span style="color: #AE81FF;">]</span>;
+</pre>
+</div>
+
+<p>
+The "fat arrow" (=&gt;) goes between each key - value pair, so the template is:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php">key =&gt; value
+</pre>
+</div>
+
+<p>
+You can then use a key to look up its corresponding value:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F92672;">echo</span> <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">person</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">"name"</span><span style="color: #AE81FF;">]</span> . <span style="color: #E6DB74;">" is awesome&lt;br&gt;"</span>;
+<span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"His favourite food is "</span> . <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">person</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">"favourite_food"</span><span style="color: #AE81FF;">]</span> . <span style="color: #E6DB74;">".&lt;br&gt;"</span>;
+</pre>
+</div>
+
+<p>
+<i>Foreach</i> loops can also be used to go through the items in an associative array:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F92672;">foreach</span> <span style="color: #AE81FF;">(</span><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">person</span> <span style="color: #F92672;">as</span> <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">key</span> =&gt; <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">value</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #F92672;">echo</span> <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">key</span> . <span style="color: #E6DB74;">" is "</span> . <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">value</span>;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+
+<p>
+The above goes through each item of the associative array and assigns its key to $key and the corresponding value to $value.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgbb2067a" class="outline-2">
+<h2 id="orgbb2067a">Using Web Forms with PHP</h2>
+<div class="outline-text-2" id="text-orgbb2067a">
+</div>
+<div id="outline-container-org4e31598" class="outline-4">
+<h4 id="org4e31598">GET vs POST requests</h4>
+<div class="outline-text-4" id="text-org4e31598">
+<p>
+When you make an HTML form, you can specify the type of <i>request</i> that is sent:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #A6E22E;">form</span> <span style="color: #FD971F;">action</span>=<span style="color: #E6DB74;">"script.php"</span> <span style="color: #FD971F;">method</span>=<span style="color: #E6DB74;">"post"</span>&gt;
+&lt;/<span style="color: #A6E22E;">form</span>&gt;
+</pre>
+</div>
+
+<p>
+The two types of requests that you need to know about are <i>GET</i> and <i>POST</i> requests. GET requests are sent by adding information on to the end of a URL. For example, if you type "Matt" into a text box called "name" and "32" into another text box called "age", this will appear at the end of the URL:
+</p>
+
+<pre class="example">
+?name=Matt&amp;age=32
+</pre>
+
+<p>
+When this is sent to your <i>script.php</i> file, the full URL in the bar appears as:
+</p>
+
+<pre class="example">
+http://localhost/forms/script.php?name=Matt&amp;age=32
+</pre>
+
+<p>
+But what if you have some valuable information that you don't want to be exposed in the URL of a page? You can imagine how this could be a security risk - you don't want to see a password you've entered into a web form to appear in the URL, for example. To solve this problem, you can use the <i>POST</i> request, which sends the information invisibly.
+</p>
+
+<p>
+So why use GET requests at all? Well, they can be useful in case you want to send or link to a URL with the certain parameters included. For example, if you have a web shop with a "products" page, and the product shown is dependent on parameters sent via GET, you could link to that product like this:
+</p>
+
+<pre class="example">
+http://myfancyshop.com/products.php?productid=324
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8e32cb3" class="outline-4">
+<h4 id="php_superglobals"><a id="org8e32cb3"></a>PHP $<sub>GET</sub> and $<sub>POST</sub> superglobals</h4>
+<div class="outline-text-4" id="text-php_superglobals">
+<p>
+Once you've sent the data to a PHP page using your web form, you need to access it using a <i>superglobal</i> variable. This changes according to the method you've used to send the data. If you used a <i>GET</i> request, you'd bind the form data to variables using <code>$_GET['']</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">username</span> = <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">_GET</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'username'</span><span style="color: #AE81FF;">]</span>;
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">height</span> = <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">_GET</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'height'</span><span style="color: #AE81FF;">]</span>;
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">birthday</span> = <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">_GET</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'birthday'</span><span style="color: #AE81FF;">]</span>;
+</pre>
+</div>
+
+<p>
+If you've used a <i>POST</i> request instead, you can access the data with <code>$_POST['']</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">username</span> = <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">_GET</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'username'</span><span style="color: #AE81FF;">]</span>;
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">height</span> = <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">_GET</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'height'</span><span style="color: #AE81FF;">]</span>;
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">birthday</span> = <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">_GET</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'birthday'</span><span style="color: #AE81FF;">]</span>;
+</pre>
+</div>
+
+<p>
+You can then use the form information using the variables you've declared.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbd787a4" class="outline-2">
+<h2 id="orgbd787a4">Accessing MySQL Databases with PHP</h2>
+<div class="outline-text-2" id="text-orgbd787a4">
+<p>
+This session covers:
+</p>
+
+<p>
+We will use the <a href="http://php.net/manual/en/book.mysqli.php">mysqli interface</a> to connect to MySQL database from PHP code. The mysqli interface has two different ways of using it: the <i>object-oriented</i> way and the <i>procedural</i> way. We will be using the procedural API throughout this course.
+</p>
+</div>
+
+<div id="outline-container-org3a44e33" class="outline-3">
+<h3 id="org3a44e33">Connecting to a MySQL database with PHP</h3>
+<div class="outline-text-3" id="text-org3a44e33">
+<p>
+First, you need to create a file called <code>index.php</code> somewhere on your web server. For example, if you put it in a folder called "mysql" inside XAMPP's htdocs folder, it will be accessible at this address: <a href="http://localhost/mysql">http://localhost/mysql</a>. Put the usual skeleton of an HTML file inside:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #AE81FF;">&lt;</span>html<span style="color: #AE81FF;">&gt;</span>
+<span style="color: #AE81FF;">&lt;</span>head<span style="color: #AE81FF;">&gt;&lt;</span>title<span style="color: #AE81FF;">&gt;</span><span style="color: #AE81FF;">PHP</span> <span style="color: #F92672;">and</span> MySQL&lt;/title&gt;&lt;/head&gt;
+    <span style="color: #AE81FF;">&lt;</span>body<span style="color: #AE81FF;">&gt;</span>
+
+<span style="color: #F92672;">        &lt;?php</span>
+
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">Your PHP code goes here</span>
+
+        <span style="color: #AE81FF;">?&gt;</span>
+
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+
+<p>
+The next step is to create some variables to hold the login details for the MySQL database:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">host</span> = <span style="color: #E6DB74;">"localhost"</span>;
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">username</span> = <span style="color: #E6DB74;">"matty"</span>;
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">password</span> = <span style="color: #E6DB74;">"password"</span>;
+<span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">db</span> = <span style="color: #E6DB74;">"mydatabase"</span>;
+</pre>
+</div>
+
+<p>
+We will refer to these variables when we create the database connection. This is done by using the <code>mysqli_connect()</code> function:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">connection</span> = mysqli_connect<span style="color: #AE81FF;">(</span><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">host</span>, <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">username</span>, <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">password</span>, <span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">db</span><span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+
+<p>
+When we call the <code>mysqli_connect</code> function, the result is stored in the <code>$connection</code> variable. This is used to store the state of the connection to the database, so that we can use it to query, make changes and close the connection when we are done.
+</p>
+
+<p>
+To check that the connection succeeded, use an <i>if</i>-statement:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F92672;">if</span><span style="color: #AE81FF;">(</span><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">connection</span> === <span style="color: #AE81FF;">false</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+    <span style="color: #F92672;">die</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"ERROR: Could not connect."</span> . mysqli_connect_error<span style="color: #A6E22E;">()</span><span style="color: #66D9EF;">)</span>;
+<span style="color: #AE81FF;">}</span>
+
+<span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"Connection successful"</span>;
+</pre>
+</div>
+
+<p>
+This checks to see if the connection was successful, then terminates the PHP script with an error message if not. If it did succeed, it prints "Connection successful".
+</p>
+
+<p>
+The full, complete code for connecting to the database is listed in <a href="code/1_connection.php">this file</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0c954bc" class="outline-3">
+<h3 id="org0c954bc">Querying the database with PHP</h3>
+<div class="outline-text-3" id="text-org0c954bc">
+<p>
+Now that we have connected to our database using PHP, we can send some SQL queries to it. In this example, we're going to get all of the entries from a table called "users", then go through the results row by row, printing only the values in the "name" column.
+</p>
+
+<p>
+First, we'll create a string for our SQL query and assign it to a variable called <code>$sql</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-php"><span style="color: #F8F8F2; background-color: #000000;">$</span><span style="color: #FD971F;">sql</span> = <span style="color: #E6DB74;">"SELECT * FROM suspect;"</span>;
+</pre>
+</div>
+
+<p>
+The full code for querying the database is in <a href="code/2_send_sql_query.php">this file</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge3673cb" class="outline-3">
+<h3 id="orge3673cb">Creating a new database</h3>
+<div class="outline-text-3" id="text-orge3673cb">
+<p>
+The full code for creating a new database is in <a href="code/3_create_database.php">this file</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc01c509" class="outline-3">
+<h3 id="orgc01c509">Creating a new table</h3>
+<div class="outline-text-3" id="text-orgc01c509">
+<p>
+The full code for creating a table inside a database is <a href="code/4_create_table.php">here</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd1d5bbe" class="outline-3">
+<h3 id="orgd1d5bbe">Using a HTML form to add rows to a database</h3>
+<div class="outline-text-3" id="text-orgd1d5bbe">
+<p>
+The code for the HTML form page is <a href="code/5a_form.php">here</a>.
+The PHP code for handling the GET request is <a href="code/5b_insert.php">here</a>.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

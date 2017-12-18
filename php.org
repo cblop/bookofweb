@@ -1,0 +1,356 @@
+#+TITLE:The Book of Web
+#+HTML:<br>
+
+| [[./#][◀ MySQL]] | [[./index.html][Table of contents]] | [[./#][AJAX ▶]] |
+| <l>    | <c>               |                           <r> |
+
+* PHP
+
+This chapter covers:
+
+- Printing values to HTML
+- Variables
+- Strings and concatenation
+- Arithmetic operators
+- Conditional statements (if, elseif, else)
+- While and for loops
+- Arrays
+- Foreach loops
+- Associative arrays
+- How to use PHP code to connect to MySQL databases
+- Generating SQL queries with PHP
+- Creating new databases with PHP
+- Using PHP to add tables to your database
+- Using HTML forms to add new database items
+
+PHP files always end in .php, but they can also contain HTML code
+You just need to start with this tag:
+
+#+BEGIN_SRC php
+<?php
+#+END_SRC
+
+...and finish with this tag:
+
+#+BEGIN_SRC php
+?>
+#+END_SRC
+
+** Printing
+To print something in PHP, use the "echo" function:
+
+#+BEGIN_SRC php
+echo "Hello, PHP!";
+#+END_SRC
+
+To print a newline character, insert an HTML <br>:
+
+#+BEGIN_SRC php
+echo "Hi,<br>How is it going?";
+#+END_SRC
+
+** Variables
+To declare a variable, its name must start with a dollar sign ($)
+
+#+BEGIN_SRC php
+$age = 32;
+$myName = "Matt";
+#+END_SRC
+
+** String Concatenation
+To print strings and variables, put a dot (.) between them:
+
+#+BEGIN_SRC php
+echo "My name is " . $myName . " and my age is " . $age . "<br>";
+#+END_SRC
+
+A quick way to insert variables inside your strings is to put them inside double quotes ("). This doesn't work with single quotes, though:
+
+#+BEGIN_SRC php
+echo "My name is $myName and my age is $age<br>";
+#+END_SRC
+
+** Arithmetic
+PHP has all the usual arithmetic operators:
+
+
+#+BEGIN_SRC php
+2 + 3;
+3 - 4;
+3 * 3;
+44 / 3;
+23 % 4;
+#+END_SRC
+
+But it also arithmetic assignment operators. These change the value of a variable in place:
+
+#+BEGIN_SRC php
+$x = 1;
+
+$x++; // now x is 2
+$x += 1; // now x = 3
+$x -= 4; // now x = -1
+$x *= -4; // now x = 4
+$x /= 4; // now x = 1
+#+END_SRC
+
+** Data Types
+
+#+BEGIN_SRC php
+$myName = "Matt"; // string
+$myAge = 32; // integer
+$myHeight = 186.4; // double
+$isTeacher = true; // bool
+$nullVal = NULL; // NULL
+#+END_SRC
+
+** Conditional Statements
+PHP has if, elseif and else statements, they work the same way as almost every other language:
+
+#+BEGIN_SRC php
+$food = "curry";
+
+// if statement:
+if ($food == "pasta") {
+    echo "I like pasta"; // this code is executed if $food is "pasta"
+}
+
+// if and else statements:
+if ($food == "pasta") {
+    echo "I like pasta"; // this code is executed if $food is "pasta"
+} else {
+    echo "I don't like pasta"; // this code is executed if $food is NOT "pasta"
+}
+
+// if, elseif and else statements:
+if ($food == "pasta") {
+    echo "I like pasta"; // this code is executed if $food is "pasta"
+} elseif ($food == "curry") {
+    echo "I like curry"; // this code is executed if $food is "curry"
+} else {
+    echo "I don't like pasta"; // this code is executed if $food is NEITHER "pasta" or "curry"
+}
+#+END_SRC
+
+** While Loops
+A while loop will keep repeating while the condition is true:
+
+#+BEGIN_SRC php
+$cond = true;
+
+while ($cond == true) {
+    echo "This code will print over and over.<br>";
+}
+#+END_SRC
+
+** For Loops
+A for loop has three parameters: some initial statement, a conditional statement which stops the loop if false, and a statement which run after every loop:
+
+#+BEGIN_SRC php
+for ($i = 0; $i < 10; $i++) {
+    echo "i is " . $i; // this will print numbers from 0 to 9
+}
+#+END_SRC
+
+** Arrays
+   
+To create an array variable in PHP, put the elements inside square brackets and separate them with commas:
+   
+#+BEGIN_SRC php
+$weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+#+END_SRC
+
+As PHP is a /dynamic/ language, you can mix different types in the same array:
+
+#+BEGIN_SRC php
+$mixedTypes = ["hello", 12, [132, "yes"], 28.22, "bye", true];
+#+END_SRC
+
+Use the array_push() function to add elements to an array. This changes the value of the array in-place (rather than returning the changed array):
+
+#+BEGIN_SRC php
+echo $weekDays; // ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+
+array_push($weekDays, "Saturday", "Sunday"); // Note that this takes each new element as an extra argument
+
+echo $weekDays; // ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+#+END_SRC
+
+** Foreach loops
+   
+/Foreach/ loops are a very convenient way to go through each element of an array:
+
+#+BEGIN_SRC php
+// this prints each element of the $weekDays array
+foreach ($weekDays as $w) {
+  echo $w . "<br>";
+}
+#+END_SRC
+
+Each time it goes through the loop, $w is given the value of an element from the array. So in this case, the first time round $w = "Monday", then $w = "Tuesday", then $w = "Wednesday", etc.
+
+** Associative Arrays
+ 
+Associative arrays (also called "Hash maps" or "Dictionaries" in other languages) hold sets of keys and values. A key is used to look up a value that is associated with it. For example:
+
+#+BEGIN_SRC php
+$person = ["name" => "Matt", "age" => 32, "height" => "186cm", "favourite_food" => "curry"];
+#+END_SRC
+
+The "fat arrow" (=>) goes between each key - value pair, so the template is:
+
+#+BEGIN_SRC php
+key => value
+#+END_SRC
+
+You can then use a key to look up its corresponding value:
+
+#+BEGIN_SRC php
+echo $person["name"] . " is awesome<br>";
+echo "His favourite food is " . $person["favourite_food"] . ".<br>";
+#+END_SRC
+
+/Foreach/ loops can also be used to go through the items in an associative array:
+
+#+BEGIN_SRC php
+foreach ($person as $key => $value) {
+  echo $key . " is " . $value;
+}
+#+END_SRC
+
+The above goes through each item of the associative array and assigns its key to $key and the corresponding value to $value.
+
+
+* Using Web Forms with PHP
+
+*** GET vs POST requests
+When you make an HTML form, you can specify the type of /request/ that is sent:
+
+#+BEGIN_SRC html
+<form action="script.php" method="post">
+</form>
+#+END_SRC
+
+The two types of requests that you need to know about are /GET/ and /POST/ requests. GET requests are sent by adding information on to the end of a URL. For example, if you type "Matt" into a text box called "name" and "32" into another text box called "age", this will appear at the end of the URL:
+
+#+BEGIN_SRC
+?name=Matt&age=32
+#+END_SRC
+
+When this is sent to your /script.php/ file, the full URL in the bar appears as:
+
+#+BEGIN_SRC
+http://localhost/forms/script.php?name=Matt&age=32
+#+END_SRC
+
+But what if you have some valuable information that you don't want to be exposed in the URL of a page? You can imagine how this could be a security risk - you don't want to see a password you've entered into a web form to appear in the URL, for example. To solve this problem, you can use the /POST/ request, which sends the information invisibly.
+
+So why use GET requests at all? Well, they can be useful in case you want to send or link to a URL with the certain parameters included. For example, if you have a web shop with a "products" page, and the product shown is dependent on parameters sent via GET, you could link to that product like this:
+
+#+BEGIN_SRC
+http://myfancyshop.com/products.php?productid=324
+#+END_SRC
+
+*** PHP $_GET and $_POST superglobals
+:PROPERTIES:
+:CUSTOM_ID: php_superglobals
+:END:
+Once you've sent the data to a PHP page using your web form, you need to access it using a /superglobal/ variable. This changes according to the method you've used to send the data. If you used a /GET/ request, you'd bind the form data to variables using ~$_GET['']~:
+
+#+BEGIN_SRC php
+$username = $_GET['username'];
+$height = $_GET['height'];
+$birthday = $_GET['birthday'];
+#+END_SRC
+
+If you've used a /POST/ request instead, you can access the data with ~$_POST['']~:
+
+#+BEGIN_SRC php
+$username = $_GET['username'];
+$height = $_GET['height'];
+$birthday = $_GET['birthday'];
+#+END_SRC
+
+You can then use the form information using the variables you've declared.
+
+* Accessing MySQL Databases with PHP
+This session covers:
+
+# - Randomly generating database entries with PHP
+
+We will use the [[http://php.net/manual/en/book.mysqli.php][mysqli interface]] to connect to MySQL database from PHP code. The mysqli interface has two different ways of using it: the /object-oriented/ way and the /procedural/ way. We will be using the procedural API throughout this course.
+
+** Connecting to a MySQL database with PHP
+First, you need to create a file called ~index.php~ somewhere on your web server. For example, if you put it in a folder called "mysql" inside XAMPP's htdocs folder, it will be accessible at this address: http://localhost/mysql. Put the usual skeleton of an HTML file inside:
+
+#+BEGIN_SRC php
+<html>
+<head><title>PHP and MySQL</title></head>
+    <body>
+    
+        <?php
+
+        // Your PHP code goes here
+
+        ?>
+    
+    </body>
+</html>
+#+END_SRC
+
+The next step is to create some variables to hold the login details for the MySQL database:
+
+#+BEGIN_SRC php
+$host = "localhost";
+$username = "matty";
+$password = "password";
+$db = "mydatabase";
+#+END_SRC
+
+We will refer to these variables when we create the database connection. This is done by using the ~mysqli_connect()~ function:
+
+#+BEGIN_SRC php
+$connection = mysqli_connect($host, $username, $password, $db);
+#+END_SRC
+
+When we call the ~mysqli_connect~ function, the result is stored in the ~$connection~ variable. This is used to store the state of the connection to the database, so that we can use it to query, make changes and close the connection when we are done.
+
+To check that the connection succeeded, use an /if/-statement:
+
+#+BEGIN_SRC php
+if($connection === false) {
+    die("ERROR: Could not connect." . mysqli_connect_error());
+}
+
+echo "Connection successful";
+#+END_SRC
+
+This checks to see if the connection was successful, then terminates the PHP script with an error message if not. If it did succeed, it prints "Connection successful".
+
+The full, complete code for connecting to the database is listed in [[file:code/1_connection.php][this file]].
+
+** Querying the database with PHP
+Now that we have connected to our database using PHP, we can send some SQL queries to it. In this example, we're going to get all of the entries from a table called "users", then go through the results row by row, printing only the values in the "name" column.
+
+First, we'll create a string for our SQL query and assign it to a variable called ~$sql~:
+
+#+BEGIN_SRC php
+$sql = "SELECT * FROM suspect;";
+#+END_SRC
+
+The full code for querying the database is in [[file:code/2_send_sql_query.php][this file]].
+
+** Creating a new database
+
+The full code for creating a new database is in [[file:code/3_create_database.php][this file]].
+
+** Creating a new table
+
+The full code for creating a table inside a database is [[file:code/4_create_table.php][here]].
+
+** Using a HTML form to add rows to a database
+
+The code for the HTML form page is [[file:code/5a_form.php][here]].
+The PHP code for handling the GET request is [[file:code/5b_insert.php][here]].
+
+# ** Generating random data for the database

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Book of Web</title>
+<meta name="generator" content="Org mode">
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<header>
+<h1 class="title">The Book of Web</h1>
+</header><br>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-center">
+
+<col  class="org-right">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><a href="./#">◀ The three-tier web architecture</a></td>
+<td class="org-center"><a href="./index.html">Table of contents</a></td>
+<td class="org-right"><a href="./#">CSS ▶</a></td>
+</tr>
+</tbody>
+</table>
+
+<div id="outline-container-orgcc160a5" class="outline-2">
+<h2 id="orgcc160a5">Basic HTML forms</h2>
+<div class="outline-text-2" id="text-orgcc160a5">
+<p>
+HTML forms are created using the <code>&lt;form&gt;</code> tag:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #A6E22E;">form</span> <span style="color: #FD971F;">action</span>=<span style="color: #E6DB74;">"script.php"</span>&gt;
+&lt;\form&gt;
+</pre>
+</div>
+
+<p>
+The "action" parameter specifies the name of the PHP file that the form data will be sent to.
+</p>
+</div>
+
+<div id="outline-container-orgb51edca" class="outline-3">
+<h3 id="orgb51edca">Text Boxes</h3>
+<div class="outline-text-3" id="text-orgb51edca">
+<p>
+Use the <code>&lt;input&gt;</code> tag to create textboxes:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #A6E22E;">form</span> <span style="color: #FD971F;">action</span>=<span style="color: #E6DB74;">"script.php"</span>&gt;
+  &lt;<span style="color: #A6E22E;">input</span> <span style="color: #FD971F;">type</span>=<span style="color: #E6DB74;">"text"</span> <span style="color: #FD971F;">name</span>=<span style="color: #E6DB74;">"username"</span>&gt;
+&lt;\form&gt;
+</pre>
+</div>
+
+<p>
+When the user submits the form (using the "submit" button described below), the contents of this textbox are sent to the "script.php" page where they can be retrieved with <code>$_GET['username']</code>, <a href="./php.html#php_superglobals">as described in the "superglobals section</a>.
+</p>
+
+<p>
+Other types of text box can be added using the <code>type</code> attribute:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #A6E22E;">form</span> <span style="color: #FD971F;">action</span>=<span style="color: #E6DB74;">"script.php"</span>&gt;
+  &lt;<span style="color: #A6E22E;">input</span> <span style="color: #FD971F;">type</span>=<span style="color: #E6DB74;">"text"</span> <span style="color: #FD971F;">name</span>=<span style="color: #E6DB74;">"username"</span>&gt;
+  &lt;<span style="color: #A6E22E;">input</span> <span style="color: #FD971F;">type</span>=<span style="color: #E6DB74;">"number"</span> <span style="color: #FD971F;">name</span>=<span style="color: #E6DB74;">"height"</span>&gt;
+  &lt;<span style="color: #A6E22E;">input</span> <span style="color: #FD971F;">type</span>=<span style="color: #E6DB74;">"date"</span> <span style="color: #FD971F;">name</span>=<span style="color: #E6DB74;">"birthday"</span>&gt;
+&lt;\form&gt;
+</pre>
+</div>
+
+<p>
+In the above examples, the "height" textbox accepts numbers as input, and the "birthday" textbox makes it easy to enter dates.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org229071e" class="outline-3">
+<h3 id="org229071e">Submit button</h3>
+<div class="outline-text-3" id="text-org229071e">
+<p>
+Once the user has entered information into the form, they need to be able to submit it for processing. This is done with the "submit" button:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #A6E22E;">input</span> <span style="color: #FD971F;">type</span>=<span style="color: #E6DB74;">"submit"</span> <span style="color: #FD971F;">name</span>=<span style="color: #E6DB74;">"Submit"</span>&gt;
+</pre>
+</div>
+
+<p>
+This goes into the form, usually as the last item:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #A6E22E;">form</span> <span style="color: #FD971F;">action</span>=<span style="color: #E6DB74;">"script.php"</span>&gt;
+  &lt;<span style="color: #A6E22E;">input</span> <span style="color: #FD971F;">type</span>=<span style="color: #E6DB74;">"text"</span> <span style="color: #FD971F;">name</span>=<span style="color: #E6DB74;">"username"</span>&gt;
+  &lt;<span style="color: #A6E22E;">input</span> <span style="color: #FD971F;">type</span>=<span style="color: #E6DB74;">"number"</span> <span style="color: #FD971F;">name</span>=<span style="color: #E6DB74;">"height"</span>&gt;
+  &lt;<span style="color: #A6E22E;">input</span> <span style="color: #FD971F;">type</span>=<span style="color: #E6DB74;">"date"</span> <span style="color: #FD971F;">name</span>=<span style="color: #E6DB74;">"birthday"</span>&gt;
+  &lt;<span style="color: #A6E22E;">input</span> <span style="color: #FD971F;">type</span>=<span style="color: #E6DB74;">"submit"</span> <span style="color: #FD971F;">name</span>=<span style="color: #E6DB74;">"Submit"</span>&gt;
+&lt;\form&gt;
+</pre>
+</div>
+
+<p>
+The <code>name</code> attribute is both the button's label and its identifier when accessed with <a href="./php.html#php_superglobals">superglobal variables</a>.
+</p>
+
+<p>
+When the button is clicked, all of the form's information is sent to the page specified with the form's <code>action</code> parameter (in this case, <i>script.php</i>). The default way to send it is using a <i>GET</i> request, which I will now explain.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
