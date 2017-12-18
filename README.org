@@ -1,0 +1,13 @@
+* The Book of Web
+
+The Book of Web is an online textbook that teaches the fundamentals of:
+
+- MySQL
+- PHP
+- HTML
+- CSS
+- Javascript
+- AJAX
+- Bootstrap
+
+Its aim is to take a complete beginner to the world of programming, and teach them how to develop a fully-functioning web application.
