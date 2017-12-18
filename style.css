@@ -71,19 +71,6 @@ img {
     font: 1.2em/1.62 monospace;
     background-color: #333;
     padding: 20px;
-    width: 100%;
-    /* margin-left: 50%; */
-    /* transform: translateX(-50%); */
+    width: fit-content;
 }
 
-.wide {
-    width: 120%;
-    margin-left: 50%;
-    transform: translateX(-50%);
-}
-
-.wider {
-    width: 130%;
-    margin-left: 50%;
-    transform: translateX(-50%);
-}
