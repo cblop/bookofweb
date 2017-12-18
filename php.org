@@ -281,6 +281,10 @@ This session covers:
 We will use the [[http://php.net/manual/en/book.mysqli.php][mysqli interface]] to connect to MySQL database from PHP code. The mysqli interface has two different ways of using it: the /object-oriented/ way and the /procedural/ way. We will be using the procedural API throughout this course.
 
 ** Connecting to a MySQL database with PHP
+:PROPERTIES:
+:CUSTOM_ID: php_mysql
+:END:
+
 First, you need to create a file called ~index.php~ somewhere on your web server. For example, if you put it in a folder called "mysql" inside XAMPP's htdocs folder, it will be accessible at this address: http://localhost/mysql. Put the usual skeleton of an HTML file inside:
 
 #+BEGIN_SRC php

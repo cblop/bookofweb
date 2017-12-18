@@ -5,6 +5,9 @@
 | <l>    | <c>               |                           <r> |
 
 ** Basic HTML forms
+:PROPERTIES:
+:CUSTOM_ID: html_forms
+:END:
 
 HTML forms are created using the ~<form>~ tag:
 

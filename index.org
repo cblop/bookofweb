@@ -12,8 +12,8 @@
 - The three-tier web architecture
 
 *** 2. The Presentation Layer
-- HTML
-  - Web Forms
+- [[./html.html][HTML]]
+  - [[./html.html#html_forms][Web Forms]]
 - CSS
   - Bootstrap
 - Javascript
@@ -22,7 +22,7 @@
 *** 3. The Data Layer
 - MySQL
 *** 4. The Logic Layer
-- PHP
-  - Using PHP with MySQL
+- [[./php.html][PHP]]
+  - [[./php.html#php_mysql][Using PHP with MySQL]]
 - AJAX
 
