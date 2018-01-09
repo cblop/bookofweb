@@ -1,0 +1,99 @@
+#+TITLE:The Book of Web
+#+HTML:<br>
+
+| [[./#][◀ JQuery]] | [[./index.html][Table of contents]] | [[./php.html][PHP ▶]] |
+| <l>    | <c>               |                           <r> |
+
+* MySQL
+
+# ** Create a database
+
+# #+BEGIN_SRC sql
+# CREATE DATABASE films
+# #+END_SRC
+
+** Create your tables
+
+Because we are creating a database for *films*, it makes sense to have a film table. For now, our film table will have attributes for:
+
+- *title*: the title of the film
+- *genre*: the film's genre (action, suspense, documentary, etc)
+- *running length*: the film's run time in minutes
+
+Also, every table will have an *ID* column. This is very important, is it will be used as a *primary key* for each piece of data that's put into the database. A primary key is a piece of data that uniquely identifies each row (piece of data) in a database table.
+
+When creating a database table, we have to think carefully about the datatypes for each database column. The ID column must always be an *integer* (~INT~ in MySQL), and it needs to be unique for each row. To ensure this, we can add some constraints
+
+- ~AUTO\_INCREMENT~: This will automatically add 1 to every new row in the table
+- ~NOT NULL~: This makes sure that the data has some value, which is important for the ID column as every row _must_ have a unique ID as its primary key!
+
+The other columns in our film table are more open to interpretation. We use ~VARCHAR(255)~ as the datatypes for both the film's title and genre. This is the equivalent of a /string/ type in other languages, meaning that it is just a piece of text. The 255 in ~VARCHAR(255)~ is the maximum size of the string in bytes. Don't worry about this too much, just remember that 255 is the usual number to use for this. The ~VAR~ in ~VARCHAR~ means that the text's length is variable (i.e. it doesn't always have to be 255 bytes in size). Again, don't worry about this too much - we'll cover standard ~VAR~ types (and why you would use them) later.
+
+The final column in our table is ~running\_length~, which will be the length of a movie in minutes and can just be an integer (~INT~ in MySQL).
+
+Here's how to create a table with the above constraints in MySQL:
+
+#+BEGIN_SRC sql
+CREATE TABLE film (
+  id INT AUTO_INCREMENT NOT NULL,
+  title VARCHAR(255),
+  genre VARCHAR(255),
+  running_length int,
+  PRIMARY KEY (id)
+)
+#+END_SRC sql
+
+The final line that says ~PRIMARY KEY (id)~ states that the ID column is the primary key - the column that will uniquely identify each row of the database. Be careful to put the name of the column (id) inside parentheses! The parentheses are there in case you want to put multiple column names to form a compound primary key.
+
+OK, so now we've created our film table. What next? How about adding some directors?
+
+#+BEGIN_SRC sql
+CREATE TABLE director (
+  id INT AUTO_INCREMENT NOT NULL,
+  surname VARCHAR(255),
+  firstname VARCHAR(255),
+  date_of_birth DATE
+  PRIMARY KEY (id)
+)
+#+END_SRC sql
+
+The structure of this director table is much the same as for the film table above, but with one difference: we've added a ~date\_of\_birth~ column for the director's birthday. This is a datatype that expects a date of the format YYYY-MM-DD (year, month, day), such as "1985-12-31". We'll explain this further when we start [[id:insert-data][inserting rows into the database]].
+
+Time to add one more table, this time for actors. For this one, we'll keep the same columns we used for the director table, but add some ~INT~ columns for height and weight, and an ~ENUM~ for the director's sex. In this case, we want to represent their sex as "m" for male and "f" for female, and accept no other inputs. This is what we use ~ENUM~ types for. By putting the type as ~ENUM('m', 'f')~, we are stating that we will only accept "m" or "f" as the input here.
+
+#+BEGIN_SRC sql
+CREATE TABLE actor (
+  id INT AUTO_INCREMENT NOT NULL,
+  surname VARCHAR(255),
+  firstname VARCHAR(255),
+  sex ENUM('m', 'f'),
+  height_cm INT,
+  weight_kg INT,
+  date_of_birth DATE
+  PRIMARY KEY (id)
+)
+#+END_SRC sql
+
+OK, so we've created our tables! Nice work. Time to start linking them together. For that, we need to use /foreign keys/.
+
+** Foreign keys
+
+
+#+BEGIN_SRC sql
+DROP TABLE film;
+#+END_SRC
+
+#+BEGIN_SRC sql
+CREATE TABLE film (
+  id INT AUTO_INCREMENT NOT NULL,
+  title VARCHAR(255),
+  genre VARCHAR(255),
+  director_id INT,
+  
+)
+#+END_SRC sql
+
+** Insert data into your tables
+   :PROPERTIES:
+   :CUSTOM_ID: insert-data
+   :END:
