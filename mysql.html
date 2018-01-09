@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-09 Tue 16:17 -->
+<!-- 2018-01-09 Tue 16:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Book of Web</title>
@@ -81,13 +81,13 @@ for the JavaScript code in this tag.
 </tbody>
 </table>
 
-<div id="outline-container-org5116ed9" class="outline-2">
-<h2 id="org5116ed9"><span class="section-number-2">1</span> MySQL</h2>
+<div id="outline-container-org3d6b720" class="outline-2">
+<h2 id="org3d6b720"><span class="section-number-2">1</span> MySQL</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 
-<div id="outline-container-org7d09524" class="outline-3">
-<h3 id="org7d09524"><span class="section-number-3">1.1</span> Create your tables</h3>
+<div id="outline-container-orgc2885bb" class="outline-3">
+<h3 id="orgc2885bb"><span class="section-number-3">1.1</span> Create your tables</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Because we are creating a database for <b>films</b>, it makes sense to have a film table. For now, our film table will have attributes for:
@@ -182,8 +182,8 @@ OK, so we've created our tables! Nice work. Time to start linking them together.
 </div>
 </div>
 
-<div id="outline-container-orgddf6488" class="outline-3">
-<h3 id="orgddf6488"><span class="section-number-3">1.2</span> Foreign keys</h3>
+<div id="outline-container-orgaa7e7fe" class="outline-3">
+<h3 id="orgaa7e7fe"><span class="section-number-3">1.2</span> Foreign keys</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 For the first example, we want to add a director to the film table, so that each film has a director associated with it. To do this, we need to add a <i>foreign key</i> to the table. A foreign key is an integer that matches the unique ID (the primary key) of a row in another table.
@@ -199,11 +199,11 @@ At the moment, our film table doesn't have a foreign key for directors. We'll ha
 </div>
 
 <p>
-This adds a column called "director<sub>id</sub>" to the film table, with an integer datatype. It's a good idea to put _id at the end of a foreign key name to remind yourself that it's just an integer that matches the ID in another table. Also note that the <code>COLUMN</code> keyword in <code>ADD COLUMN</code> is optional - the command works just fine without it.
+This adds a column called <code>director_id</code> to the film table, with an integer datatype. It's a good idea to put <code>_id</code> at the end of a foreign key name to remind yourself that it's just an integer that matches the ID in another table. Also note that the <code>COLUMN</code> keyword in <code>ADD COLUMN</code> is optional - the command works just fine without it.
 </p>
 
 <p>
-Now that we've added that column, we need to tell our database that it's a foreign key to the "director" table:
+Now that we've added that column, we need to tell our database that it's a foreign key to the <code>director</code> table:
 </p>
 
 <div class="org-src-container">
@@ -212,11 +212,11 @@ Now that we've added that column, we need to tell our database that it's a forei
 </div>
 
 <p>
-Here, we tell the database that the numbers in the director<sub>id</sub> column all refer to id numbers in the director table. Again note that the name of the key (director<sub>id</sub>) goes inside parentheses!
+Here, we tell the database that the numbers in the <code>director_id</code> column all refer to id numbers in the <code>director</code> table. Again note that the name of the key (<code>director_id</code>) goes inside parentheses!
 </p>
 
 <p>
-A film doesn't just have a director though. It also has actors that star in it! To avoid creating a many-to-many relationship (for now), we are going to limit the information about our films to one actor per film, with a "lead<sub>actor</sub>" column.
+A film doesn't just have a <code>director</code> though. It also has actors that star in it! To avoid creating a many-to-many relationship (for now), we are going to limit the information about our films to one actor per film, with a <code>lead_actor</code> column.
 </p>
 
 <p>
@@ -233,7 +233,7 @@ The <code>DROP TABLE</code> command deletes a table from your database. So be ca
 </p>
 
 <p>
-Now, let's add our film table back in, but this time with director<sub>id</sub> and lead<sub>actor</sub><sub>id</sub> as foreign keys:
+Now, let's add our film table back in, but this time with <code>director_id</code> and <code>lead_actor_id</code> as foreign keys:
 </p>
 
 <div class="org-src-container">
@@ -252,16 +252,74 @@ Now, let's add our film table back in, but this time with director<sub>id</sub> 
 </div>
 
 <p>
-Now we have a new films table that's linked to both the director and actor tables, using the director<sub>id</sub> and lead<sub>actor</sub><sub>id</sub> foreign keys.
+Now we have a new films table that's linked to both the director and actor tables, using the <code>director_id</code> and <code>lead_actor_id</code> foreign keys.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org8ff20b0" class="outline-3">
-<h3 id="insert-data"><a id="org8ff20b0"></a><span class="section-number-3">1.3</span> Insert data into your tables</h3>
+<div id="outline-container-orgffdab05" class="outline-3">
+<h3 id="insert-data"><a id="orgffdab05"></a><span class="section-number-3">1.3</span> Insert data into your tables</h3>
 <div class="outline-text-3" id="text-insert-data">
 <p>
-The time has come to actually start adding data into our database.
+The time has come to actually start adding data into our database. Let's start by adding a couple of actors:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> actor <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span><span style="color: #20b2aa; font-weight: bold;">NULL</span>, "Lamarr", "Hedy", "f", <span style="color: #1e90ff;">145</span>, <span style="color: #1e90ff;">45</span>, "<span style="color: #1e90ff;">1914</span>-<span style="color: #1e90ff;">11</span>-<span style="color: #1e90ff;">09</span>"<span style="color: #8c8c8c;">)</span>;
+<span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> actor <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span><span style="color: #20b2aa; font-weight: bold;">NULL</span>, "Kinsky", "Klaus", "<span style="color: #20b2aa; font-weight: bold;">m</span>", <span style="color: #1e90ff;">156</span>, <span style="color: #1e90ff;">55</span>, "<span style="color: #1e90ff;">1933</span>-<span style="color: #1e90ff;">12</span>-<span style="color: #1e90ff;">23</span>"<span style="color: #8c8c8c;">)</span>;
+</pre>
+</div>
+
+<p>
+Here, we've added two new actors into the <code>actor</code> table. The comma-separated values that come after the <code>VALUES</code> keyword correspond to the columns of the table <b>in order</b>. This is including the <code>id</code> column. Because the <code>id</code> value is auto-generated whenever we add a new row to the table, we've entered its value as <code>NULL</code>. To avoid having to do this, and to enter details of actors whose height and weight we don't know, we can specify the columns that we're entering data for:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> actor <span style="color: #8c8c8c;">(</span>surname, firstname, sex<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Fonda", "Henry", "<span style="color: #20b2aa; font-weight: bold;">m</span>"<span style="color: #8c8c8c;">)</span>;
+<span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> actor <span style="color: #8c8c8c;">(</span>surname, firstname, sex, date_of_birth<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Bergman", "Ingrid", "f", "<span style="color: #1e90ff;">1915</span>-<span style="color: #1e90ff;">08</span>-<span style="color: #1e90ff;">29</span>"<span style="color: #8c8c8c;">)</span>;
+</pre>
+</div>
+
+<p>
+Great. So now we have a reasonable amount of actors in our database. Time to add some directors. I'm going to use the second approach (specifying the columns we're adding data to) to do this, just as a matter of preference. You can use whichever approach you prefer.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> director <span style="color: #8c8c8c;">(</span>surname, firstname<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Hitchcock", "Alfred"<span style="color: #8c8c8c;">)</span>;
+<span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> director <span style="color: #8c8c8c;">(</span>surname, firstname<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Coppola", "Sofia"<span style="color: #8c8c8c;">)</span>;
+<span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> director <span style="color: #8c8c8c;">(</span>surname, firstname<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Lynch", "David"<span style="color: #8c8c8c;">)</span>;
+<span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> director <span style="color: #8c8c8c;">(</span>surname, firstname<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Frankenheimer", "John"<span style="color: #8c8c8c;">)</span>;
+</pre>
+</div>
+
+<p>
+Each of these actors and directors that we've added have been assigned automatically-generated IDs. They should be incremental, starting with 1 and ending with the number corresponding to however many items you've added. For example, actor Hedy Lamarr will have an ID of 1, and Ingrid Bergman will have an id of 2. For the directors, Sofia Coppola's ID will be 2, and David Lynch's is 3.
+</p>
+
+<p>
+We have to use these IDs when adding our films to the database, as they must be used as the IDs for the foreign keys for <code>director_id</code> and <code>lead_actor_id</code>. Let's add some films now. I'm going to create one called "Once Upon a Time in Twin Peaks", starring Henry Fonda and directed by David Lynch:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> film <span style="color: #8c8c8c;">(</span>title, genre, running_length, director_id, lead_actor_id<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Once Upon a <span style="color: #9370db;">Time</span> <span style="color: #20b2aa; font-weight: bold;">in</span> Twin Peaks", "Western", <span style="color: #1e90ff;">200</span>, <span style="color: #1e90ff;">3</span>, <span style="color: #1e90ff;">1</span><span style="color: #8c8c8c;">)</span>;
+</pre>
+</div>
+
+<p>
+Note the IDs we've used at the end: David Lynch's ID is 3 (as we added him to the <code>director</code> table third) and Henry Fond's is 1 (as he was first in the <code>actor</code> table).
+</p>
+
+<p>
+Let's try another example: "Lost in Casablanca", starring Ingrid Bergman (whose actor ID is 2) and directed by Sofia Coppola (whose ID is also 2):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> film <span style="color: #8c8c8c;">(</span>title, genre, running_length, director_id, lead_actor_id<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Lost <span style="color: #20b2aa; font-weight: bold;">in</span> Casablanca", "Film noir", <span style="color: #1e90ff;">180</span>, <span style="color: #1e90ff;">2</span>, <span style="color: #1e90ff;">2</span><span style="color: #8c8c8c;">)</span>;
+</pre>
+</div>
+
+<p>
+Now both films are linked to their respective directors and lead actors through the <code>director_id</code> and <code>lead_actor_id</code> foreign keys.
 </p>
 </div>
 </div>
