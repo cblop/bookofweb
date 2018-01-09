@@ -78,22 +78,55 @@ OK, so we've created our tables! Nice work. Time to start linking them together.
 
 ** Foreign keys
 
+For the first example, we want to add a director to the film table, so that each film has a director associated with it. To do this, we need to add a /foreign key/ to the table. A foreign key is an integer that matches the unique ID (the primary key) of a row in another table.
 
-# #+BEGIN_SRC sql
-# DROP TABLE film;
-# #+END_SRC
+At the moment, our film table doesn't have a foreign key for directors. We'll have to add it using the ~ALTER TABLE~ command:
 
-# #+BEGIN_SRC sql
-# CREATE TABLE film (
-#   id INT AUTO_INCREMENT NOT NULL,
-#   title VARCHAR(255),
-#   genre VARCHAR(255),
-#   director_id INT,
-  
-# )
-# #+END_SRC
+#+BEGIN_SRC sql
+ALTER TABLE film ADD COLUMN director_id INT;
+#+END_SRC
+
+This adds a column called "director_id" to the film table, with an integer datatype. It's a good idea to put _id at the end of a foreign key name to remind yourself that it's just an integer that matches the ID in another table. Also note that the ~COLUMN~ keyword in ~ADD COLUMN~ is optional - the command works just fine without it.
+
+Now that we've added that column, we need to tell our database that it's a foreign key to the "director" table:
+
+#+BEGIN_SRC sql
+ALTER TABLE film ADD FOREIGN KEY (director_id) REFERENCES director(id);
+#+END_SRC
+
+Here, we tell the database that the numbers in the director_id column all refer to id numbers in the director table. Again note that the name of the key (director_id) goes inside parentheses!
+
+A film doesn't just have a director though. It also has actors that star in it! To avoid creating a many-to-many relationship (for now), we are going to limit the information about our films to one actor per film, with a "lead_actor" column.
+
+Rather than altering the table again to add this column, I'll use this opportunity to show you how to add foreign keys when you create the actual table. So let's delete the table and start again:
+
+#+BEGIN_SRC sql
+DROP TABLE film;
+#+END_SRC
+
+The ~DROP TABLE~ command deletes a table from your database. So be careful when you use it!
+
+Now, let's add our film table back in, but this time with director_id and lead_actor_id as foreign keys:
+
+#+BEGIN_SRC sql
+CREATE TABLE film (
+  id INT AUTO_INCREMENT NOT NULL,
+  title VARCHAR(255),
+  genre VARCHAR(255),
+  running_length int,
+  director_id INT,
+  lead_actor_id INT,
+  FOREIGN KEY (director_id) REFERENCES director(id),
+  FOREIGN KEY (lead_actor_id) REFERENCES actor(id),
+  PRIMARY KEY (id)
+)
+#+END_SRC
+
+Now we have a new films table that's linked to both the director and actor tables, using the director_id and lead_actor_id foreign keys.
 
 ** Insert data into your tables
    :PROPERTIES:
    :CUSTOM_ID: insert-data
    :END:
+
+The time has come to actually start adding data into our database.

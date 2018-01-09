@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-09 Tue 14:29 -->
+<!-- 2018-01-09 Tue 16:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Book of Web</title>
@@ -81,13 +81,13 @@ for the JavaScript code in this tag.
 </tbody>
 </table>
 
-<div id="outline-container-org3ff21df" class="outline-2">
-<h2 id="org3ff21df"><span class="section-number-2">1</span> MySQL</h2>
+<div id="outline-container-org5116ed9" class="outline-2">
+<h2 id="org5116ed9"><span class="section-number-2">1</span> MySQL</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 
-<div id="outline-container-org95a2c86" class="outline-3">
-<h3 id="org95a2c86"><span class="section-number-3">1.1</span> Create your tables</h3>
+<div id="outline-container-org7d09524" class="outline-3">
+<h3 id="org7d09524"><span class="section-number-3">1.1</span> Create your tables</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Because we are creating a database for <b>films</b>, it makes sense to have a film table. For now, our film table will have attributes for:
@@ -182,15 +182,87 @@ OK, so we've created our tables! Nice work. Time to start linking them together.
 </div>
 </div>
 
-<div id="outline-container-orge3b8fc7" class="outline-3">
-<h3 id="orge3b8fc7"><span class="section-number-3">1.2</span> Foreign keys</h3>
+<div id="outline-container-orgddf6488" class="outline-3">
+<h3 id="orgddf6488"><span class="section-number-3">1.2</span> Foreign keys</h3>
 <div class="outline-text-3" id="text-1-2">
+<p>
+For the first example, we want to add a director to the film table, so that each film has a director associated with it. To do this, we need to add a <i>foreign key</i> to the table. A foreign key is an integer that matches the unique ID (the primary key) of a row in another table.
+</p>
+
+<p>
+At the moment, our film table doesn't have a foreign key for directors. We'll have to add it using the <code>ALTER TABLE</code> command:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">ALTER</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span> <span style="color: #20b2aa; font-weight: bold;">ADD</span> <span style="color: #20b2aa; font-weight: bold;">COLUMN</span> director_id <span style="color: #9370db;">INT</span>;
+</pre>
+</div>
+
+<p>
+This adds a column called "director<sub>id</sub>" to the film table, with an integer datatype. It's a good idea to put _id at the end of a foreign key name to remind yourself that it's just an integer that matches the ID in another table. Also note that the <code>COLUMN</code> keyword in <code>ADD COLUMN</code> is optional - the command works just fine without it.
+</p>
+
+<p>
+Now that we've added that column, we need to tell our database that it's a foreign key to the "director" table:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">ALTER</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span> <span style="color: #20b2aa; font-weight: bold;">ADD</span> <span style="color: #20b2aa; font-weight: bold;">FOREIGN</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #8c8c8c;">(</span>director_id<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">REFERENCES</span> director<span style="color: #8c8c8c;">(</span>id<span style="color: #8c8c8c;">)</span>;
+</pre>
+</div>
+
+<p>
+Here, we tell the database that the numbers in the director<sub>id</sub> column all refer to id numbers in the director table. Again note that the name of the key (director<sub>id</sub>) goes inside parentheses!
+</p>
+
+<p>
+A film doesn't just have a director though. It also has actors that star in it! To avoid creating a many-to-many relationship (for now), we are going to limit the information about our films to one actor per film, with a "lead<sub>actor</sub>" column.
+</p>
+
+<p>
+Rather than altering the table again to add this column, I'll use this opportunity to show you how to add foreign keys when you create the actual table. So let's delete the table and start again:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">DROP</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span>;
+</pre>
+</div>
+
+<p>
+The <code>DROP TABLE</code> command deletes a table from your database. So be careful when you use it!
+</p>
+
+<p>
+Now, let's add our film table back in, but this time with director<sub>id</sub> and lead<sub>actor</sub><sub>id</sub> as foreign keys:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">CREATE</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span> <span style="color: #8c8c8c;">(</span>
+  id <span style="color: #9370db;">INT</span> AUTO_INCREMENT <span style="color: #20b2aa; font-weight: bold;">NOT</span> <span style="color: #20b2aa; font-weight: bold;">NULL</span>,
+  title <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
+  genre <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
+  running_length <span style="color: #9370db;">int</span>,
+  director_id <span style="color: #9370db;">INT</span>,
+  lead_actor_id <span style="color: #9370db;">INT</span>,
+  <span style="color: #20b2aa; font-weight: bold;">FOREIGN</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>director_id<span style="color: #93a8c6;">)</span> <span style="color: #20b2aa; font-weight: bold;">REFERENCES</span> director<span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>,
+  <span style="color: #20b2aa; font-weight: bold;">FOREIGN</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>lead_actor_id<span style="color: #93a8c6;">)</span> <span style="color: #20b2aa; font-weight: bold;">REFERENCES</span> actor<span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>,
+  <span style="color: #20b2aa; font-weight: bold;">PRIMARY</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>
+<span style="color: #8c8c8c;">)</span>
+</pre>
+</div>
+
+<p>
+Now we have a new films table that's linked to both the director and actor tables, using the director<sub>id</sub> and lead<sub>actor</sub><sub>id</sub> foreign keys.
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgf801fe3" class="outline-3">
-<h3 id="insert-data"><a id="orgf801fe3"></a><span class="section-number-3">1.3</span> Insert data into your tables</h3>
+<div id="outline-container-org8ff20b0" class="outline-3">
+<h3 id="insert-data"><a id="org8ff20b0"></a><span class="section-number-3">1.3</span> Insert data into your tables</h3>
 <div class="outline-text-3" id="text-insert-data">
+<p>
+The time has come to actually start adding data into our database.
+</p>
 </div>
 </div>
 </div>
