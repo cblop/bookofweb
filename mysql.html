@@ -3,183 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-09 Tue 10:59 -->
+<!-- 2018-01-09 Tue 11:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Book of Web</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Matthew Thompson" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
-</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -230,20 +60,6 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">The Book of Web</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org2ae3d50">1. MySQL</a>
-<ul>
-<li><a href="#orgcc3c791">1.1. Create your tables</a></li>
-<li><a href="#org4f5c9ac">1.2. Foreign keys</a></li>
-<li><a href="#insert-data">1.3. Insert data into your tables</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 <br>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -265,13 +81,13 @@ for the JavaScript code in this tag.
 </tbody>
 </table>
 
-<div id="outline-container-org2ae3d50" class="outline-2">
-<h2 id="org2ae3d50"><span class="section-number-2">1</span> MySQL</h2>
+<div id="outline-container-org45100ec" class="outline-2">
+<h2 id="org45100ec"><span class="section-number-2">1</span> MySQL</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 
-<div id="outline-container-orgcc3c791" class="outline-3">
-<h3 id="orgcc3c791"><span class="section-number-3">1.1</span> Create your tables</h3>
+<div id="outline-container-orge262efb" class="outline-3">
+<h3 id="orge262efb"><span class="section-number-3">1.1</span> Create your tables</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Because we are creating a database for <b>films</b>, it makes sense to have a film table. For now, our film table will have attributes for:
@@ -292,7 +108,7 @@ When creating a database table, we have to think carefully about the datatypes f
 </p>
 
 <ul class="org-ul">
-<li><code>AUTO\_INCREMENT</code>: This will automatically add 1 to every new row in the table</li>
+<li><code>AUTO_INCREMENT</code>: This will automatically add 1 to every new row in the table</li>
 <li><code>NOT NULL</code>: This makes sure that the data has some value, which is important for the ID column as every row <span class="underline">must</span> have a unique ID as its primary key!</li>
 </ul>
 
@@ -301,24 +117,23 @@ The other columns in our film table are more open to interpretation. We use <cod
 </p>
 
 <p>
-The final column in our table is <code>running\_length</code>, which will be the length of a movie in minutes and can just be an integer (<code>INT</code> in MySQL).
+The final column in our table is <code>running_length</code>, which will be the length of a movie in minutes and can just be an integer (<code>INT</code> in MySQL).
 </p>
 
 <p>
 Here's how to create a table with the above constraints in MySQL:
 </p>
 
-<p>
-#+BEGIN<sub>SRC</sub> sql
-CREATE TABLE film (
-  id INT AUTO<sub>INCREMENT</sub> NOT NULL,
-  title VARCHAR(255),
-  genre VARCHAR(255),
-  running<sub>length</sub> int,
-  PRIMARY KEY (id)
-)
-#+END<sub>SRC</sub> sql
-</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">CREATE</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span> <span style="color: #8c8c8c;">(</span>
+  id <span style="color: #9370db;">INT</span> AUTO_INCREMENT <span style="color: #20b2aa; font-weight: bold;">NOT</span> <span style="color: #20b2aa; font-weight: bold;">NULL</span>,
+  title <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
+  genre <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
+  running_length <span style="color: #9370db;">int</span>,
+  <span style="color: #20b2aa; font-weight: bold;">PRIMARY</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>
+<span style="color: #8c8c8c;">)</span>
+</pre>
+</div>
 
 <p>
 The final line that says <code>PRIMARY KEY (id)</code> states that the ID column is the primary key - the column that will uniquely identify each row of the database. Be careful to put the name of the column (id) inside parentheses! The parentheses are there in case you want to put multiple column names to form a compound primary key.
@@ -328,40 +143,38 @@ The final line that says <code>PRIMARY KEY (id)</code> states that the ID column
 OK, so now we've created our film table. What next? How about adding some directors?
 </p>
 
-<p>
-#+BEGIN<sub>SRC</sub> sql
-CREATE TABLE director (
-  id INT AUTO<sub>INCREMENT</sub> NOT NULL,
-  surname VARCHAR(255),
-  firstname VARCHAR(255),
-  date<sub>of</sub><sub>birth</sub> DATE
-  PRIMARY KEY (id)
-)
-#+END<sub>SRC</sub> sql
-</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">CREATE</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">director</span> <span style="color: #8c8c8c;">(</span>
+  id <span style="color: #9370db;">INT</span> AUTO_INCREMENT <span style="color: #20b2aa; font-weight: bold;">NOT</span> <span style="color: #20b2aa; font-weight: bold;">NULL</span>,
+  surname <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
+  firstname <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
+  date_of_birth <span style="color: #9370db;">DATE</span>
+  <span style="color: #20b2aa; font-weight: bold;">PRIMARY</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>
+<span style="color: #8c8c8c;">)</span>
+</pre>
+</div>
 
 <p>
-The structure of this director table is much the same as for the film table above, but with one difference: we've added a <code>date\_of\_birth</code> column for the director's birthday. This is a datatype that expects a date of the format YYYY-MM-DD (year, month, day), such as "1985-12-31". We'll explain this further when we start <a href="#insert-data">inserting rows into the database</a>.
+The structure of this director table is much the same as for the film table above, but with one difference: we've added a <code>date_of_birth</code> column for the director's birthday. This is a datatype that expects a date of the format YYYY-MM-DD (year, month, day), such as "1985-12-31". We'll explain this further when we start <a href="#insert-data">inserting rows into the database</a>.
 </p>
 
 <p>
 Time to add one more table, this time for actors. For this one, we'll keep the same columns we used for the director table, but add some <code>INT</code> columns for height and weight, and an <code>ENUM</code> for the director's sex. In this case, we want to represent their sex as "m" for male and "f" for female, and accept no other inputs. This is what we use <code>ENUM</code> types for. By putting the type as <code>ENUM('m', 'f')</code>, we are stating that we will only accept "m" or "f" as the input here.
 </p>
 
-<p>
-#+BEGIN<sub>SRC</sub> sql
-CREATE TABLE actor (
-  id INT AUTO<sub>INCREMENT</sub> NOT NULL,
-  surname VARCHAR(255),
-  firstname VARCHAR(255),
-  sex ENUM('m', 'f'),
-  height<sub>cm</sub> INT,
-  weight<sub>kg</sub> INT,
-  date<sub>of</sub><sub>birth</sub> DATE
-  PRIMARY KEY (id)
-)
-#+END<sub>SRC</sub> sql
-</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">CREATE</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">actor</span> <span style="color: #8c8c8c;">(</span>
+  id <span style="color: #9370db;">INT</span> AUTO_INCREMENT <span style="color: #20b2aa; font-weight: bold;">NOT</span> <span style="color: #20b2aa; font-weight: bold;">NULL</span>,
+  surname <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
+  firstname <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
+  sex ENUM<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">'m'</span>, <span style="color: #ffa07a;">'f'</span><span style="color: #93a8c6;">)</span>,
+  height_cm <span style="color: #9370db;">INT</span>,
+  weight_kg <span style="color: #9370db;">INT</span>,
+  date_of_birth <span style="color: #9370db;">DATE</span>
+  <span style="color: #20b2aa; font-weight: bold;">PRIMARY</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>
+<span style="color: #8c8c8c;">)</span>
+</pre>
+</div>
 
 <p>
 OK, so we've created our tables! Nice work. Time to start linking them together. For that, we need to use <i>foreign keys</i>.
@@ -369,41 +182,33 @@ OK, so we've created our tables! Nice work. Time to start linking them together.
 </div>
 </div>
 
-<div id="outline-container-org4f5c9ac" class="outline-3">
-<h3 id="org4f5c9ac"><span class="section-number-3">1.2</span> Foreign keys</h3>
+<div id="outline-container-orgce7353b" class="outline-3">
+<h3 id="orgce7353b"><span class="section-number-3">1.2</span> Foreign keys</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #0000FF;">DROP</span> <span style="color: #0000FF;">TABLE</span> <span style="color: #006699;">film</span>;
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">DROP</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span>;
 </pre>
 </div>
 
-<p>
-#+BEGIN<sub>SRC</sub> sql
-CREATE TABLE film (
-  id INT AUTO<sub>INCREMENT</sub> NOT NULL,
-  title VARCHAR(255),
-  genre VARCHAR(255),
-  director<sub>id</sub> INT,
-</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">CREATE</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span> <span style="color: #8c8c8c;">(</span>
+  id <span style="color: #9370db;">INT</span> AUTO_INCREMENT <span style="color: #20b2aa; font-weight: bold;">NOT</span> <span style="color: #20b2aa; font-weight: bold;">NULL</span>,
+  title <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
+  genre <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
+  director_id <span style="color: #9370db;">INT</span>,
 
-<p>
-)
-#+END<sub>SRC</sub> sql
-</p>
+<span style="color: #8c8c8c;">)</span>
+</pre>
+</div>
 </div>
 </div>
 
-<div id="outline-container-org186c1d5" class="outline-3">
-<h3 id="insert-data"><a id="org186c1d5"></a><span class="section-number-3">1.3</span> Insert data into your tables</h3>
+<div id="outline-container-org173e4bf" class="outline-3">
+<h3 id="insert-data"><a id="org173e4bf"></a><span class="section-number-3">1.3</span> Insert data into your tables</h3>
 <div class="outline-text-3" id="text-insert-data">
 </div>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
-<p class="author">Author: Matthew Thompson</p>
-<p class="date">Created: 2018-01-09 Tue 10:59</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
