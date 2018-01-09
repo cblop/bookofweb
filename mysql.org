@@ -144,8 +144,11 @@ Here, we've added two new actors into the ~actor~ table. The comma-separated val
 
 #+HTML:<div class="wide">
 #+BEGIN_SRC sql
-INSERT INTO actor (surname, firstname, sex) VALUES ("Fonda", "Henry", "m");
-INSERT INTO actor (surname, firstname, sex, date_of_birth) VALUES ("Bergman", "Ingrid", "f", "1915-08-29");
+INSERT INTO actor (surname, firstname, sex)
+VALUES ("Fonda", "Henry", "m");
+
+INSERT INTO actor (surname, firstname, sex, date_of_birth)
+VALUES ("Bergman", "Ingrid", "f", "1915-08-29");
 #+END_SRC
 #+HTML:</div>
 
@@ -166,7 +169,8 @@ We have to use these IDs when adding our films to the database, as they must be 
 
 #+HTML:<div class="wide">
 #+BEGIN_SRC sql
-INSERT INTO film (title, genre, running_length, director_id, lead_actor_id) VALUES ("Once Upon a Time in Twin Peaks", "Western", 200, 3, 1);
+INSERT INTO film (title, genre, running_length, director_id, lead_actor_id)
+VALUES ("Once Upon a Time in Twin Peaks", "Western", 200, 3, 1);
 #+END_SRC
 #+HTML:</div>
 
@@ -176,7 +180,8 @@ Let's try another example: "Lost in Casablanca", starring Ingrid Bergman (whose 
 
 #+HTML:<div class="wide">
 #+BEGIN_SRC sql
-INSERT INTO film (title, genre, running_length, director_id, lead_actor_id) VALUES ("Lost in Casablanca", "Film noir", 180, 2, 2);
+INSERT INTO film (title, genre, running_length, director_id, lead_actor_id)
+VALUES ("Lost in Casablanca", "Film noir", 180, 2, 2);
 #+END_SRC
 #+HTML:</div>
 
