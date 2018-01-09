@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-09 Tue 11:15 -->
+<!-- 2018-01-09 Tue 14:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Book of Web</title>
@@ -81,13 +81,13 @@ for the JavaScript code in this tag.
 </tbody>
 </table>
 
-<div id="outline-container-org45100ec" class="outline-2">
-<h2 id="org45100ec"><span class="section-number-2">1</span> MySQL</h2>
+<div id="outline-container-org63bbc68" class="outline-2">
+<h2 id="org63bbc68"><span class="section-number-2">1</span> MySQL</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 
-<div id="outline-container-orge262efb" class="outline-3">
-<h3 id="orge262efb"><span class="section-number-3">1.1</span> Create your tables</h3>
+<div id="outline-container-org7334194" class="outline-3">
+<h3 id="org7334194"><span class="section-number-3">1.1</span> Create your tables</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Because we are creating a database for <b>films</b>, it makes sense to have a film table. For now, our film table will have attributes for:
@@ -104,7 +104,7 @@ Also, every table will have an <b>ID</b> column. This is very important, is it w
 </p>
 
 <p>
-When creating a database table, we have to think carefully about the datatypes for each database column. The ID column must always be an <b>integer</b> (<code>INT</code> in MySQL), and it needs to be unique for each row. To ensure this, we can add some constraints
+When creating a database table, we have to think carefully about the datatypes for each database column. The ID column must always be an <b>integer</b> (<code>INT</code> in MySQL), and it needs to be unique for each row. To ensure this, we can add some constraints:
 </p>
 
 <ul class="org-ul">
@@ -113,7 +113,7 @@ When creating a database table, we have to think carefully about the datatypes f
 </ul>
 
 <p>
-The other columns in our film table are more open to interpretation. We use <code>VARCHAR(255)</code> as the datatypes for both the film's title and genre. This is the equivalent of a <i>string</i> type in other languages, meaning that it is just a piece of text. The 255 in <code>VARCHAR(255)</code> is the maximum size of the string in bytes. Don't worry about this too much, just remember that 255 is the usual number to use for this. The <code>VAR</code> in <code>VARCHAR</code> means that the text's length is variable (i.e. it doesn't always have to be 255 bytes in size). Again, don't worry about this too much - we'll cover standard <code>VAR</code> types (and why you would use them) later.
+The other columns in our film table are more open to interpretation. We use <code>VARCHAR(255)</code> as the datatypes for both the film's title and genre. This is the equivalent of a <i>string</i> type in other languages, meaning that it is just a piece of text. The 255 in <code>VARCHAR(255)</code> is the maximum size of the string in bytes. Don't worry about this too much, just remember that 255 is the usual number to use for this. The <code>VAR</code> in <code>VARCHAR</code> means that the text's length is variable (i.e. it doesn't always have to be 255 bytes in size). Again, don't worry about this too much - we'll cover standard (non-variable-length) <code>CHAR</code> types (and why you would use them) later.
 </p>
 
 <p>
@@ -125,13 +125,13 @@ Here's how to create a table with the above constraints in MySQL:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">CREATE</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span> <span style="color: #8c8c8c;">(</span>
-  id <span style="color: #9370db;">INT</span> AUTO_INCREMENT <span style="color: #20b2aa; font-weight: bold;">NOT</span> <span style="color: #20b2aa; font-weight: bold;">NULL</span>,
-  title <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  genre <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  running_length <span style="color: #9370db;">int</span>,
-  <span style="color: #20b2aa; font-weight: bold;">PRIMARY</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">)</span>
+<pre class="src src-sql"><span style="color: #0000FF;">CREATE</span> <span style="color: #0000FF;">TABLE</span> <span style="color: #006699;">film</span> <span style="color: #707183;">(</span>
+  id <span style="color: #6434A3;">INT</span> AUTO_INCREMENT <span style="color: #0000FF;">NOT</span> <span style="color: #0000FF;">NULL</span>,
+  title <span style="color: #6434A3;">VARCHAR</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">255</span><span style="color: #7388D6;">)</span>,
+  genre <span style="color: #6434A3;">VARCHAR</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">255</span><span style="color: #7388D6;">)</span>,
+  running_length <span style="color: #6434A3;">int</span>,
+  <span style="color: #0000FF;">PRIMARY</span> <span style="color: #0000FF;">KEY</span> <span style="color: #7388D6;">(</span>id<span style="color: #7388D6;">)</span>
+<span style="color: #707183;">)</span>
 </pre>
 </div>
 
@@ -144,13 +144,13 @@ OK, so now we've created our film table. What next? How about adding some direct
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">CREATE</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">director</span> <span style="color: #8c8c8c;">(</span>
-  id <span style="color: #9370db;">INT</span> AUTO_INCREMENT <span style="color: #20b2aa; font-weight: bold;">NOT</span> <span style="color: #20b2aa; font-weight: bold;">NULL</span>,
-  surname <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  firstname <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  date_of_birth <span style="color: #9370db;">DATE</span>
-  <span style="color: #20b2aa; font-weight: bold;">PRIMARY</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">)</span>
+<pre class="src src-sql"><span style="color: #0000FF;">CREATE</span> <span style="color: #0000FF;">TABLE</span> <span style="color: #006699;">director</span> <span style="color: #707183;">(</span>
+  id <span style="color: #6434A3;">INT</span> AUTO_INCREMENT <span style="color: #0000FF;">NOT</span> <span style="color: #0000FF;">NULL</span>,
+  surname <span style="color: #6434A3;">VARCHAR</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">255</span><span style="color: #7388D6;">)</span>,
+  firstname <span style="color: #6434A3;">VARCHAR</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">255</span><span style="color: #7388D6;">)</span>,
+  date_of_birth <span style="color: #6434A3;">DATE</span>
+  <span style="color: #0000FF;">PRIMARY</span> <span style="color: #0000FF;">KEY</span> <span style="color: #7388D6;">(</span>id<span style="color: #7388D6;">)</span>
+<span style="color: #707183;">)</span>
 </pre>
 </div>
 
@@ -163,16 +163,16 @@ Time to add one more table, this time for actors. For this one, we'll keep the s
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">CREATE</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">actor</span> <span style="color: #8c8c8c;">(</span>
-  id <span style="color: #9370db;">INT</span> AUTO_INCREMENT <span style="color: #20b2aa; font-weight: bold;">NOT</span> <span style="color: #20b2aa; font-weight: bold;">NULL</span>,
-  surname <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  firstname <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  sex ENUM<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">'m'</span>, <span style="color: #ffa07a;">'f'</span><span style="color: #93a8c6;">)</span>,
-  height_cm <span style="color: #9370db;">INT</span>,
-  weight_kg <span style="color: #9370db;">INT</span>,
-  date_of_birth <span style="color: #9370db;">DATE</span>
-  <span style="color: #20b2aa; font-weight: bold;">PRIMARY</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">)</span>
+<pre class="src src-sql"><span style="color: #0000FF;">CREATE</span> <span style="color: #0000FF;">TABLE</span> <span style="color: #006699;">actor</span> <span style="color: #707183;">(</span>
+  id <span style="color: #6434A3;">INT</span> AUTO_INCREMENT <span style="color: #0000FF;">NOT</span> <span style="color: #0000FF;">NULL</span>,
+  surname <span style="color: #6434A3;">VARCHAR</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">255</span><span style="color: #7388D6;">)</span>,
+  firstname <span style="color: #6434A3;">VARCHAR</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">255</span><span style="color: #7388D6;">)</span>,
+  sex ENUM<span style="color: #7388D6;">(</span><span style="color: #008000;">'m'</span>, <span style="color: #008000;">'f'</span><span style="color: #7388D6;">)</span>,
+  height_cm <span style="color: #6434A3;">INT</span>,
+  weight_kg <span style="color: #6434A3;">INT</span>,
+  date_of_birth <span style="color: #6434A3;">DATE</span>
+  <span style="color: #0000FF;">PRIMARY</span> <span style="color: #0000FF;">KEY</span> <span style="color: #7388D6;">(</span>id<span style="color: #7388D6;">)</span>
+<span style="color: #707183;">)</span>
 </pre>
 </div>
 
@@ -182,29 +182,14 @@ OK, so we've created our tables! Nice work. Time to start linking them together.
 </div>
 </div>
 
-<div id="outline-container-orgce7353b" class="outline-3">
-<h3 id="orgce7353b"><span class="section-number-3">1.2</span> Foreign keys</h3>
+<div id="outline-container-org75533be" class="outline-3">
+<h3 id="org75533be"><span class="section-number-3">1.2</span> Foreign keys</h3>
 <div class="outline-text-3" id="text-1-2">
-<div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">DROP</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span>;
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">CREATE</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span> <span style="color: #8c8c8c;">(</span>
-  id <span style="color: #9370db;">INT</span> AUTO_INCREMENT <span style="color: #20b2aa; font-weight: bold;">NOT</span> <span style="color: #20b2aa; font-weight: bold;">NULL</span>,
-  title <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  genre <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  director_id <span style="color: #9370db;">INT</span>,
-
-<span style="color: #8c8c8c;">)</span>
-</pre>
-</div>
 </div>
 </div>
 
-<div id="outline-container-org173e4bf" class="outline-3">
-<h3 id="insert-data"><a id="org173e4bf"></a><span class="section-number-3">1.3</span> Insert data into your tables</h3>
+<div id="outline-container-org1fb0932" class="outline-3">
+<h3 id="insert-data"><a id="org1fb0932"></a><span class="section-number-3">1.3</span> Insert data into your tables</h3>
 <div class="outline-text-3" id="text-insert-data">
 </div>
 </div>

@@ -22,12 +22,12 @@ Because we are creating a database for *films*, it makes sense to have a film ta
 
 Also, every table will have an *ID* column. This is very important, is it will be used as a *primary key* for each piece of data that's put into the database. A primary key is a piece of data that uniquely identifies each row (piece of data) in a database table.
 
-When creating a database table, we have to think carefully about the datatypes for each database column. The ID column must always be an *integer* (~INT~ in MySQL), and it needs to be unique for each row. To ensure this, we can add some constraints
+When creating a database table, we have to think carefully about the datatypes for each database column. The ID column must always be an *integer* (~INT~ in MySQL), and it needs to be unique for each row. To ensure this, we can add some constraints:
 
 - ~AUTO_INCREMENT~: This will automatically add 1 to every new row in the table
 - ~NOT NULL~: This makes sure that the data has some value, which is important for the ID column as every row _must_ have a unique ID as its primary key!
 
-The other columns in our film table are more open to interpretation. We use ~VARCHAR(255)~ as the datatypes for both the film's title and genre. This is the equivalent of a /string/ type in other languages, meaning that it is just a piece of text. The 255 in ~VARCHAR(255)~ is the maximum size of the string in bytes. Don't worry about this too much, just remember that 255 is the usual number to use for this. The ~VAR~ in ~VARCHAR~ means that the text's length is variable (i.e. it doesn't always have to be 255 bytes in size). Again, don't worry about this too much - we'll cover standard ~VAR~ types (and why you would use them) later.
+The other columns in our film table are more open to interpretation. We use ~VARCHAR(255)~ as the datatypes for both the film's title and genre. This is the equivalent of a /string/ type in other languages, meaning that it is just a piece of text. The 255 in ~VARCHAR(255)~ is the maximum size of the string in bytes. Don't worry about this too much, just remember that 255 is the usual number to use for this. The ~VAR~ in ~VARCHAR~ means that the text's length is variable (i.e. it doesn't always have to be 255 bytes in size). Again, don't worry about this too much - we'll cover standard (non-variable-length) ~CHAR~ types (and why you would use them) later.
 
 The final column in our table is ~running_length~, which will be the length of a movie in minutes and can just be an integer (~INT~ in MySQL).
 
@@ -79,19 +79,19 @@ OK, so we've created our tables! Nice work. Time to start linking them together.
 ** Foreign keys
 
 
-#+BEGIN_SRC sql
-DROP TABLE film;
-#+END_SRC
+# #+BEGIN_SRC sql
+# DROP TABLE film;
+# #+END_SRC
 
-#+BEGIN_SRC sql
-CREATE TABLE film (
-  id INT AUTO_INCREMENT NOT NULL,
-  title VARCHAR(255),
-  genre VARCHAR(255),
-  director_id INT,
+# #+BEGIN_SRC sql
+# CREATE TABLE film (
+#   id INT AUTO_INCREMENT NOT NULL,
+#   title VARCHAR(255),
+#   genre VARCHAR(255),
+#   director_id INT,
   
-)
-#+END_SRC
+# )
+# #+END_SRC
 
 ** Insert data into your tables
    :PROPERTIES:
