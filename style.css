@@ -3,6 +3,7 @@ body{
 		max-width:40em;
 		padding:0 .62em;
 		font:1.2em/1.62 sans-serif;
+    /* position: relative; */
 }
 
 h1,h2,h3 {
@@ -78,4 +79,11 @@ img {
     width: fit-content;
     margin-left: 50%;
     transform: translateX(-50%);
+}
+
+
+#table-of-contents {
+    width: 300px;
+    position: fixed;
+    margin-left: 50%;
 }

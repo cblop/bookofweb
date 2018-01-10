@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-09 Tue 17:00 -->
+<!-- 2018-01-10 Wed 11:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Book of Web</title>
@@ -81,13 +81,28 @@ for the JavaScript code in this tag.
 </tbody>
 </table>
 
-<div id="outline-container-orge767f71" class="outline-2">
-<h2 id="orge767f71"><span class="section-number-2">1</span> MySQL</h2>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgca037ea">1. MySQL</a>
+<ul>
+<li><a href="#orgc445c12">1.1. Create your tables</a></li>
+<li><a href="#org631de30">1.2. Foreign keys</a></li>
+<li><a href="#insert-data">1.3. Insert data into your tables</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgca037ea" class="outline-2">
+<h2 id="orgca037ea"><span class="section-number-2">1</span> MySQL</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 
-<div id="outline-container-org2d2e538" class="outline-3">
-<h3 id="org2d2e538"><span class="section-number-3">1.1</span> Create your tables</h3>
+<div id="outline-container-orgc445c12" class="outline-3">
+<h3 id="orgc445c12"><span class="section-number-3">1.1</span> Create your tables</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Because we are creating a database for <b>films</b>, it makes sense to have a film table. For now, our film table will have attributes for:
@@ -125,13 +140,13 @@ Here's how to create a table with the above constraints in MySQL:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">CREATE</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span> <span style="color: #8c8c8c;">(</span>
-  id <span style="color: #9370db;">INT</span> AUTO_INCREMENT <span style="color: #20b2aa; font-weight: bold;">NOT</span> <span style="color: #20b2aa; font-weight: bold;">NULL</span>,
-  title <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  genre <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  running_length <span style="color: #9370db;">int</span>,
-  <span style="color: #20b2aa; font-weight: bold;">PRIMARY</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">)</span>
+<pre class="src src-sql"><span style="color: #F92672;">CREATE</span> <span style="color: #F92672;">TABLE</span> <span style="color: #A6E22E;">film</span> <span style="color: #AE81FF;">(</span>
+  id <span style="color: #66D9EF;">INT</span> AUTO_INCREMENT <span style="color: #F92672;">NOT</span> <span style="color: #F92672;">NULL</span>,
+  title <span style="color: #66D9EF;">VARCHAR</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">255</span><span style="color: #66D9EF;">)</span>,
+  genre <span style="color: #66D9EF;">VARCHAR</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">255</span><span style="color: #66D9EF;">)</span>,
+  running_length <span style="color: #66D9EF;">int</span>,
+  <span style="color: #F92672;">PRIMARY</span> <span style="color: #F92672;">KEY</span> <span style="color: #66D9EF;">(</span>id<span style="color: #66D9EF;">)</span>
+<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 
@@ -144,13 +159,13 @@ OK, so now we've created our film table. What next? How about adding some direct
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">CREATE</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">director</span> <span style="color: #8c8c8c;">(</span>
-  id <span style="color: #9370db;">INT</span> AUTO_INCREMENT <span style="color: #20b2aa; font-weight: bold;">NOT</span> <span style="color: #20b2aa; font-weight: bold;">NULL</span>,
-  surname <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  firstname <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  date_of_birth <span style="color: #9370db;">DATE</span>
-  <span style="color: #20b2aa; font-weight: bold;">PRIMARY</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">)</span>
+<pre class="src src-sql"><span style="color: #F92672;">CREATE</span> <span style="color: #F92672;">TABLE</span> <span style="color: #A6E22E;">director</span> <span style="color: #AE81FF;">(</span>
+  id <span style="color: #66D9EF;">INT</span> AUTO_INCREMENT <span style="color: #F92672;">NOT</span> <span style="color: #F92672;">NULL</span>,
+  surname <span style="color: #66D9EF;">VARCHAR</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">255</span><span style="color: #66D9EF;">)</span>,
+  firstname <span style="color: #66D9EF;">VARCHAR</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">255</span><span style="color: #66D9EF;">)</span>,
+  date_of_birth <span style="color: #66D9EF;">DATE</span>
+  <span style="color: #F92672;">PRIMARY</span> <span style="color: #F92672;">KEY</span> <span style="color: #66D9EF;">(</span>id<span style="color: #66D9EF;">)</span>
+<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 
@@ -163,16 +178,16 @@ Time to add one more table, this time for actors. For this one, we'll keep the s
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">CREATE</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">actor</span> <span style="color: #8c8c8c;">(</span>
-  id <span style="color: #9370db;">INT</span> AUTO_INCREMENT <span style="color: #20b2aa; font-weight: bold;">NOT</span> <span style="color: #20b2aa; font-weight: bold;">NULL</span>,
-  surname <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  firstname <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  sex ENUM<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">'m'</span>, <span style="color: #ffa07a;">'f'</span><span style="color: #93a8c6;">)</span>,
-  height_cm <span style="color: #9370db;">INT</span>,
-  weight_kg <span style="color: #9370db;">INT</span>,
-  date_of_birth <span style="color: #9370db;">DATE</span>
-  <span style="color: #20b2aa; font-weight: bold;">PRIMARY</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">)</span>
+<pre class="src src-sql"><span style="color: #F92672;">CREATE</span> <span style="color: #F92672;">TABLE</span> <span style="color: #A6E22E;">actor</span> <span style="color: #AE81FF;">(</span>
+  id <span style="color: #66D9EF;">INT</span> AUTO_INCREMENT <span style="color: #F92672;">NOT</span> <span style="color: #F92672;">NULL</span>,
+  surname <span style="color: #66D9EF;">VARCHAR</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">255</span><span style="color: #66D9EF;">)</span>,
+  firstname <span style="color: #66D9EF;">VARCHAR</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">255</span><span style="color: #66D9EF;">)</span>,
+  sex ENUM<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'m'</span>, <span style="color: #E6DB74;">'f'</span><span style="color: #66D9EF;">)</span>,
+  height_cm <span style="color: #66D9EF;">INT</span>,
+  weight_kg <span style="color: #66D9EF;">INT</span>,
+  date_of_birth <span style="color: #66D9EF;">DATE</span>
+  <span style="color: #F92672;">PRIMARY</span> <span style="color: #F92672;">KEY</span> <span style="color: #66D9EF;">(</span>id<span style="color: #66D9EF;">)</span>
+<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 
@@ -182,8 +197,8 @@ OK, so we've created our tables! Nice work. Time to start linking them together.
 </div>
 </div>
 
-<div id="outline-container-org094edc7" class="outline-3">
-<h3 id="org094edc7"><span class="section-number-3">1.2</span> Foreign keys</h3>
+<div id="outline-container-org631de30" class="outline-3">
+<h3 id="org631de30"><span class="section-number-3">1.2</span> Foreign keys</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 For the first example, we want to add a director to the film table, so that each film has a director associated with it. To do this, we need to add a <i>foreign key</i> to the table. A foreign key is an integer that matches the unique ID (the primary key) of a row in another table.
@@ -194,7 +209,7 @@ At the moment, our film table doesn't have a foreign key for directors. We'll ha
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">ALTER</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span> <span style="color: #20b2aa; font-weight: bold;">ADD</span> <span style="color: #20b2aa; font-weight: bold;">COLUMN</span> director_id <span style="color: #9370db;">INT</span>;
+<pre class="src src-sql"><span style="color: #F92672;">ALTER</span> <span style="color: #F92672;">TABLE</span> <span style="color: #A6E22E;">film</span> <span style="color: #F92672;">ADD</span> <span style="color: #F92672;">COLUMN</span> director_id <span style="color: #66D9EF;">INT</span>;
 </pre>
 </div>
 
@@ -208,7 +223,7 @@ Now that we've added that column, we need to tell our database that it's a forei
 
 <div class="wide">
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">ALTER</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span> <span style="color: #20b2aa; font-weight: bold;">ADD</span> <span style="color: #20b2aa; font-weight: bold;">FOREIGN</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #8c8c8c;">(</span>director_id<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">REFERENCES</span> director<span style="color: #8c8c8c;">(</span>id<span style="color: #8c8c8c;">)</span>;
+<pre class="src src-sql"><span style="color: #F92672;">ALTER</span> <span style="color: #F92672;">TABLE</span> <span style="color: #A6E22E;">film</span> <span style="color: #F92672;">ADD</span> <span style="color: #F92672;">FOREIGN</span> <span style="color: #F92672;">KEY</span> <span style="color: #AE81FF;">(</span>director_id<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">REFERENCES</span> director<span style="color: #AE81FF;">(</span>id<span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 </div>
@@ -226,7 +241,7 @@ Rather than altering the table again to add this column, I'll use this opportuni
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">DROP</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span>;
+<pre class="src src-sql"><span style="color: #F92672;">DROP</span> <span style="color: #F92672;">TABLE</span> <span style="color: #A6E22E;">film</span>;
 </pre>
 </div>
 
@@ -239,17 +254,17 @@ Now, let's add our film table back in, but this time with <code>director_id</cod
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">CREATE</span> <span style="color: #20b2aa; font-weight: bold;">TABLE</span> <span style="color: #00ff7f;">film</span> <span style="color: #8c8c8c;">(</span>
-  id <span style="color: #9370db;">INT</span> AUTO_INCREMENT <span style="color: #20b2aa; font-weight: bold;">NOT</span> <span style="color: #20b2aa; font-weight: bold;">NULL</span>,
-  title <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  genre <span style="color: #9370db;">VARCHAR</span><span style="color: #93a8c6;">(</span><span style="color: #1e90ff;">255</span><span style="color: #93a8c6;">)</span>,
-  running_length <span style="color: #9370db;">int</span>,
-  director_id <span style="color: #9370db;">INT</span>,
-  lead_actor_id <span style="color: #9370db;">INT</span>,
-  <span style="color: #20b2aa; font-weight: bold;">FOREIGN</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>director_id<span style="color: #93a8c6;">)</span> <span style="color: #20b2aa; font-weight: bold;">REFERENCES</span> director<span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>,
-  <span style="color: #20b2aa; font-weight: bold;">FOREIGN</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>lead_actor_id<span style="color: #93a8c6;">)</span> <span style="color: #20b2aa; font-weight: bold;">REFERENCES</span> actor<span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>,
-  <span style="color: #20b2aa; font-weight: bold;">PRIMARY</span> <span style="color: #20b2aa; font-weight: bold;">KEY</span> <span style="color: #93a8c6;">(</span>id<span style="color: #93a8c6;">)</span>
-<span style="color: #8c8c8c;">)</span>
+<pre class="src src-sql"><span style="color: #F92672;">CREATE</span> <span style="color: #F92672;">TABLE</span> <span style="color: #A6E22E;">film</span> <span style="color: #AE81FF;">(</span>
+  id <span style="color: #66D9EF;">INT</span> AUTO_INCREMENT <span style="color: #F92672;">NOT</span> <span style="color: #F92672;">NULL</span>,
+  title <span style="color: #66D9EF;">VARCHAR</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">255</span><span style="color: #66D9EF;">)</span>,
+  genre <span style="color: #66D9EF;">VARCHAR</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">255</span><span style="color: #66D9EF;">)</span>,
+  running_length <span style="color: #66D9EF;">int</span>,
+  director_id <span style="color: #66D9EF;">INT</span>,
+  lead_actor_id <span style="color: #66D9EF;">INT</span>,
+  <span style="color: #F92672;">FOREIGN</span> <span style="color: #F92672;">KEY</span> <span style="color: #66D9EF;">(</span>director_id<span style="color: #66D9EF;">)</span> <span style="color: #F92672;">REFERENCES</span> director<span style="color: #66D9EF;">(</span>id<span style="color: #66D9EF;">)</span>,
+  <span style="color: #F92672;">FOREIGN</span> <span style="color: #F92672;">KEY</span> <span style="color: #66D9EF;">(</span>lead_actor_id<span style="color: #66D9EF;">)</span> <span style="color: #F92672;">REFERENCES</span> actor<span style="color: #66D9EF;">(</span>id<span style="color: #66D9EF;">)</span>,
+  <span style="color: #F92672;">PRIMARY</span> <span style="color: #F92672;">KEY</span> <span style="color: #66D9EF;">(</span>id<span style="color: #66D9EF;">)</span>
+<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 
@@ -259,8 +274,8 @@ Now we have a new films table that's linked to both the director and actor table
 </div>
 </div>
 
-<div id="outline-container-orgdda7d77" class="outline-3">
-<h3 id="insert-data"><a id="orgdda7d77"></a><span class="section-number-3">1.3</span> Insert data into your tables</h3>
+<div id="outline-container-orgedef8cb" class="outline-3">
+<h3 id="insert-data"><a id="orgedef8cb"></a><span class="section-number-3">1.3</span> Insert data into your tables</h3>
 <div class="outline-text-3" id="text-insert-data">
 <p>
 The time has come to actually start adding data into our database. Let's start by adding a couple of actors:
@@ -268,8 +283,8 @@ The time has come to actually start adding data into our database. Let's start b
 
 <div class="wide">
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> actor <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span><span style="color: #20b2aa; font-weight: bold;">NULL</span>, "Lamarr", "Hedy", "f", <span style="color: #1e90ff;">145</span>, <span style="color: #1e90ff;">45</span>, "<span style="color: #1e90ff;">1914</span>-<span style="color: #1e90ff;">11</span>-<span style="color: #1e90ff;">09</span>"<span style="color: #8c8c8c;">)</span>;
-<span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> actor <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span><span style="color: #20b2aa; font-weight: bold;">NULL</span>, "Kinsky", "Klaus", "<span style="color: #20b2aa; font-weight: bold;">m</span>", <span style="color: #1e90ff;">156</span>, <span style="color: #1e90ff;">55</span>, "<span style="color: #1e90ff;">1933</span>-<span style="color: #1e90ff;">12</span>-<span style="color: #1e90ff;">23</span>"<span style="color: #8c8c8c;">)</span>;
+<pre class="src src-sql"><span style="color: #F92672;">INSERT</span> <span style="color: #F92672;">INTO</span> actor <span style="color: #F92672;">VALUES</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">NULL</span>, "Lamarr", "Hedy", "f", <span style="color: #AE81FF;">145</span>, <span style="color: #AE81FF;">45</span>, "<span style="color: #AE81FF;">1914</span>-<span style="color: #AE81FF;">11</span>-<span style="color: #AE81FF;">09</span>"<span style="color: #AE81FF;">)</span>;
+<span style="color: #F92672;">INSERT</span> <span style="color: #F92672;">INTO</span> actor <span style="color: #F92672;">VALUES</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">NULL</span>, "Kinsky", "Klaus", "<span style="color: #F92672;">m</span>", <span style="color: #AE81FF;">156</span>, <span style="color: #AE81FF;">55</span>, "<span style="color: #AE81FF;">1933</span>-<span style="color: #AE81FF;">12</span>-<span style="color: #AE81FF;">23</span>"<span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 </div>
@@ -280,11 +295,11 @@ Here, we've added two new actors into the <code>actor</code> table. The comma-se
 
 <div class="wide">
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> actor <span style="color: #8c8c8c;">(</span>surname, firstname, sex<span style="color: #8c8c8c;">)</span>
-<span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Fonda", "Henry", "<span style="color: #20b2aa; font-weight: bold;">m</span>"<span style="color: #8c8c8c;">)</span>;
+<pre class="src src-sql"><span style="color: #F92672;">INSERT</span> <span style="color: #F92672;">INTO</span> actor <span style="color: #AE81FF;">(</span>surname, firstname, sex<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">VALUES</span> <span style="color: #AE81FF;">(</span>"Fonda", "Henry", "<span style="color: #F92672;">m</span>"<span style="color: #AE81FF;">)</span>;
 
-<span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> actor <span style="color: #8c8c8c;">(</span>surname, firstname, sex, date_of_birth<span style="color: #8c8c8c;">)</span>
-<span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Bergman", "Ingrid", "f", "<span style="color: #1e90ff;">1915</span>-<span style="color: #1e90ff;">08</span>-<span style="color: #1e90ff;">29</span>"<span style="color: #8c8c8c;">)</span>;
+<span style="color: #F92672;">INSERT</span> <span style="color: #F92672;">INTO</span> actor <span style="color: #AE81FF;">(</span>surname, firstname, sex, date_of_birth<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">VALUES</span> <span style="color: #AE81FF;">(</span>"Bergman", "Ingrid", "f", "<span style="color: #AE81FF;">1915</span>-<span style="color: #AE81FF;">08</span>-<span style="color: #AE81FF;">29</span>"<span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 </div>
@@ -295,10 +310,10 @@ Great. So now we have a reasonable amount of actors in our database. Time to add
 
 <div class="wide">
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> director <span style="color: #8c8c8c;">(</span>surname, firstname<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Hitchcock", "Alfred"<span style="color: #8c8c8c;">)</span>;
-<span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> director <span style="color: #8c8c8c;">(</span>surname, firstname<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Coppola", "Sofia"<span style="color: #8c8c8c;">)</span>;
-<span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> director <span style="color: #8c8c8c;">(</span>surname, firstname<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Lynch", "David"<span style="color: #8c8c8c;">)</span>;
-<span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> director <span style="color: #8c8c8c;">(</span>surname, firstname<span style="color: #8c8c8c;">)</span> <span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Frankenheimer", "John"<span style="color: #8c8c8c;">)</span>;
+<pre class="src src-sql"><span style="color: #F92672;">INSERT</span> <span style="color: #F92672;">INTO</span> director <span style="color: #AE81FF;">(</span>surname, firstname<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">VALUES</span> <span style="color: #AE81FF;">(</span>"Hitchcock", "Alfred"<span style="color: #AE81FF;">)</span>;
+<span style="color: #F92672;">INSERT</span> <span style="color: #F92672;">INTO</span> director <span style="color: #AE81FF;">(</span>surname, firstname<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">VALUES</span> <span style="color: #AE81FF;">(</span>"Coppola", "Sofia"<span style="color: #AE81FF;">)</span>;
+<span style="color: #F92672;">INSERT</span> <span style="color: #F92672;">INTO</span> director <span style="color: #AE81FF;">(</span>surname, firstname<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">VALUES</span> <span style="color: #AE81FF;">(</span>"Lynch", "David"<span style="color: #AE81FF;">)</span>;
+<span style="color: #F92672;">INSERT</span> <span style="color: #F92672;">INTO</span> director <span style="color: #AE81FF;">(</span>surname, firstname<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">VALUES</span> <span style="color: #AE81FF;">(</span>"Frankenheimer", "John"<span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 </div>
@@ -313,8 +328,8 @@ We have to use these IDs when adding our films to the database, as they must be 
 
 <div class="wide">
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> film <span style="color: #8c8c8c;">(</span>title, genre, running_length, director_id, lead_actor_id<span style="color: #8c8c8c;">)</span>
-<span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Once Upon a <span style="color: #9370db;">Time</span> <span style="color: #20b2aa; font-weight: bold;">in</span> Twin Peaks", "Western", <span style="color: #1e90ff;">200</span>, <span style="color: #1e90ff;">3</span>, <span style="color: #1e90ff;">1</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-sql"><span style="color: #F92672;">INSERT</span> <span style="color: #F92672;">INTO</span> film <span style="color: #AE81FF;">(</span>title, genre, running_length, director_id, lead_actor_id<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">VALUES</span> <span style="color: #AE81FF;">(</span>"Once Upon a <span style="color: #66D9EF;">Time</span> <span style="color: #F92672;">in</span> Twin Peaks", "Western", <span style="color: #AE81FF;">200</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 </div>
@@ -329,8 +344,8 @@ Let's try another example: "Lost in Casablanca", starring Ingrid Bergman (whose 
 
 <div class="wide">
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #20b2aa; font-weight: bold;">INSERT</span> <span style="color: #20b2aa; font-weight: bold;">INTO</span> film <span style="color: #8c8c8c;">(</span>title, genre, running_length, director_id, lead_actor_id<span style="color: #8c8c8c;">)</span>
-<span style="color: #20b2aa; font-weight: bold;">VALUES</span> <span style="color: #8c8c8c;">(</span>"Lost <span style="color: #20b2aa; font-weight: bold;">in</span> Casablanca", "Film noir", <span style="color: #1e90ff;">180</span>, <span style="color: #1e90ff;">2</span>, <span style="color: #1e90ff;">2</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-sql"><span style="color: #F92672;">INSERT</span> <span style="color: #F92672;">INTO</span> film <span style="color: #AE81FF;">(</span>title, genre, running_length, director_id, lead_actor_id<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">VALUES</span> <span style="color: #AE81FF;">(</span>"Lost <span style="color: #F92672;">in</span> Casablanca", "Film noir", <span style="color: #AE81FF;">180</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 </div>
