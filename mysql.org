@@ -4,9 +4,11 @@
 | [[./#][◀ JQuery]] | [[./index.html][Table of contents]] | [[./php.html][PHP ▶]] |
 | <l>      | <c>               |   <r> |
 
-#+TOC: headlines 2
 
 * MySQL
+
+
+#+TOC: headlines 2
 
 # ** Create a database
 
