@@ -20,7 +20,7 @@
   - JQuery
 
 *** 3. The Data Layer
-- MySQL
+- [[./mysql.html][MySQL]]
 *** 4. The Logic Layer
 - [[./php.html][PHP]]
   - [[./php.html#php_mysql][Using PHP with MySQL]]

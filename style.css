@@ -86,4 +86,7 @@ img {
     width: 300px;
     position: fixed;
     margin-left: 50%;
+    padding: 20px;
+    background-color: white;
+    z-index: 1;
 }
