@@ -1,4 +1,4 @@
-#+TITLE:The Book of Web
+#+TITLE:The Web, Untangled
 #+HTML: <div align=center>
 /Learn Web Programming, One Project at a Time/
 #+HTML: </div>

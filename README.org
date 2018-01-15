@@ -1,6 +1,6 @@
-* The Book of Web
+* The Web, Untangled
 
-The Book of Web is an online textbook that teaches the fundamentals of:
+/The Web, Untangled/ is an online textbook that teaches the fundamentals of:
 
 - MySQL
 - PHP

@@ -1,4 +1,4 @@
-#+TITLE:The Book of Web
+#+TITLE:The Web, Untangled
 #+HTML:<br>
 
 |  | [[./index.html][Table of contents]] | [[./environment.html][Setting up your environment ▶]] |

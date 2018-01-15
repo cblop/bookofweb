@@ -1,4 +1,4 @@
-#+TITLE:The Book of Web
+#+TITLE:The Web, Untangled
 #+HTML:<br>
 
 | [[./welcome.html][◀ Welcome!]] | [[./index.html][Table of contents]] | [[./index.html][The three-tier web architecture ▶]] |
