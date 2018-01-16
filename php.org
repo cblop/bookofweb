@@ -257,7 +257,7 @@ So why use GET requests at all? Well, they can be useful in case you want to sen
 http://myfancyshop.com/products.php?productid=324
 #+END_SRC
 
-*** PHP $_GET and $_POST superglobals
+*** PHP ~$_GET~ and ~$_POST~ superglobals
 :PROPERTIES:
 :CUSTOM_ID: php_superglobals
 :END:
