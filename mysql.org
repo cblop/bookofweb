@@ -49,6 +49,17 @@ CREATE TABLE film (
 
 The final line that says ~PRIMARY KEY (id)~ states that the ID column is the primary key - the column that will uniquely identify each row of the database. Be careful to put the name of the column (id) inside parentheses! The parentheses are there in case you want to put multiple column names to form a compound primary key.
 
+Another way to set the ~id~ as primary key is to simply add ~PRIMARY KEY~ to its constraints instead. If you do this, there's no need to have ~NOT NULL~ as a constraint, as this is already implied from its being a primary key:
+
+#+BEGIN_SRC sql
+CREATE TABLE film (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255),
+  genre VARCHAR(255),
+  running_length int
+)
+#+END_SRC
+
 OK, so now we've created our film table. What next? How about adding some directors?
 
 #+BEGIN_SRC sql

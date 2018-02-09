@@ -1,0 +1,179 @@
+#+TITLE: CODELAB I: Multimedia Tags
+#+HTML:<br>
+
+* Week 16 Workshop: Create an interactive soundboard
+
+In this week's workshop, we'll combine your existing HTML and CSS skills with your newfound knowledge of the HTML ~<audio>~ tag. With just a little bit of extra Javascript, we're going to create an interactive soundboard. Here's how to get started:
+
+** Step 1: Fire up the Brackets Editor
+It's easiest to use Brackets for this because it runs a basic local web server for you. This is needed to access the mp3 files - web browsers won't let you access any audio files unless they're on a host somewhere.
+
+So, fire up the Brackets editor and type this in:
+
+#+BEGIN_SRC html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Awesome Soundboard</title>
+  </head>
+
+  <body>
+    <h1>My Awesome Soundboard</h1>
+  </body>
+
+</html>
+#+END_SRC
+
+First, save this file in a new folder called "soundboard" somewhere where you can find it easily (like the desktop). Call the file "soundboard.html". Remember where this folder is - we'll need to add more files to it later.
+
+Once you've saved the file, click on the little thunderbolt icon on the top right of the Brackets window so that it turns yellow. It should look like this:
+
+[[file:img/multi-shot-brackets.png]]
+
+The Chrome web browser should pop up, showing the basic web page that you created:
+
+[[file:img/multi-shot1.png]]
+
+Now we're ready to add some sounds! Go to [[http://freesound.org][freesound.org]] to search for some sound effects. I want to create the soundtrack to a Michael Bay movie, which means that I want to have lots of gunshots and explosions. First, I'll download some gunfire sounds and save them as ~fire.mp3~ in the "soundboard" folder we just created. Now, I can put this file in the HTML page with the ~<audio>~ tag:
+
+#+BEGIN_SRC html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Awesome Soundboard</title>
+  </head>
+
+  <body>
+    <h1>My Awesome Soundboard</h1>
+
+    <audio id="fire" src="./fire.mp3"></audio>
+
+  </body>
+
+</html>
+#+END_SRC
+
+Notice how we've given the audio element an id of "fire" - this is so that we can refer to it later in order to make it play.
+
+Now, we're going to add a button to click so that the audio will play. Add this line underneath the ~<audio>~ tag line we just added:
+
+#+BEGIN_SRC html
+<input type="button" value="PLAY" onclick="play()">
+#+END_SRC
+
+This will create a button on our page to click. Give it a try! Nothing will happen yet - we need to connect the button's ~onclick~ action to the audio element with a little bit of Javascript. We can do this by adding some Javascript code inside a script tag like this:
+
+#+BEGIN_SRC html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Awesome Soundboard</title>
+  </head>
+
+  <body>
+    <h1>My Awesome Soundboard</h1>
+
+    <script>
+    
+        function play() {
+            var audio = document.getElementById("fire");
+            audio.play();
+        }
+        
+    </script>
+
+    <audio id="fire" src="./fire.mp3"></audio>
+
+    <input type="button" value="PLAY" onclick="play()">
+
+  </body>
+
+</html>
+#+END_SRC
+
+Let's take a closer look at the Javascript we just added:
+
+#+BEGIN_SRC javascript
+function play() {
+  var audioElement = document.getElementById("fire");
+  audioElement.play();
+}
+#+END_SRC
+
+What does this do? Well, it creates a function called "play" which we can call whenever we want to play an audio file. The first line of the function grabs any element we have in the webpage with an id of "fire". As we gave the ~<audio>~ element that id, that's the element that gets assigned to the ~audioElement~ variable (using the ~var audioElement =~ statement). Then we just call ~.play()~ on that element to tell it to play. It's like we're reaching inside the HTML document, grabbing the audio tag, and telling it to play the audio.
+
+OK, so this is great - we have some gunfire for our Michael Bay soundscape. Time to add some explosions.
+
+Let's make it more visual this time - let's have it so that you have to click on an image of an explosion to hear the sound. Do a web search for explosion images and find your favourite one. Here's the one that I used:
+
+[[file:img/explosion.jpg]]
+
+Save the file as "explosion.jpg" in the same "soundboard" folder from earlier.
+
+Now, let's get a good-sounding explosion noise to go with it. Like before, you can search on [[http://freesound.org][freesound.org]] to find a sound. You could also go on [[http://youtube.com][youtube]] to find a good sound and convert it to an mp3 using a web service such as [[http://youtubemp3.to/][youtubemp3]].
+
+Now that we have our explosion image and sound, let's add them to the webpage:
+
+#+BEGIN_SRC html
+<audio id="explosion" src="./explosion.mp3"></audio>
+    
+<img src="./explosion.jpg" onclick="play()">
+#+END_SRC
+
+This time, we've give the audio tag an id of "explosion", to differentiate it from the gunfire sounds. Also, like with the button from before, we've added an ~onclick=play()~ attribute to the image. This tells it to call the ~play()~ Javascript function when you click on it.
+
+Save the file, and try it out in the browser. Something's not quite right - clicking on the image triggers a sound, but it's the gunfire sound from before, not our lovely new explosion. This is because the Javascript we wrote before always plays the same sound. We /could/ define a new function to play our explosion file, but we can do better than that. Instead, let's rewrite the existing function so that it's capable of playing any sound you tell it to:
+
+#+BEGIN_SRC javascript
+function play(id) {
+  var audio = document.getElementById(id);
+  audio.play();
+}
+#+END_SRC
+
+Now, the ~play~ function takes one argument: id. This is the id of the audio element you want it to play. It now uses that argument in the first line to select it from the HTML document (instead of always "fire"), and then plays it.
+
+Alter the button and image so that the ~onclick=play()~ attributes now call the ~play~ function with the "fire" and "explosion" ids, respectively. The whole page should now look like this:
+
+#+BEGIN_SRC html
+<html>
+<head><title>Sound Board</title></head>
+
+<body>
+    
+    <script>
+    
+    function play(id) {
+        var audio = document.getElementById(id);
+        audio.play();
+    }
+        
+    </script>
+    
+    <audio id="fire" src="./fire.mp3"></audio>
+    <audio id="explosion" src="./explosion.mp3"></audio>
+    
+    <img src="explosion.jpg" onclick="play('explosion')">
+    <input type="button" value="PLAY" onclick="play('fire')">
+
+    </body>
+</html>
+#+END_SRC
+
+Note that we've put single quotes inside double quotes for ~onclick="play('explosion')"~ and ~onclick="play('fire')"~. We need to do this so that the inner and outer quote marks don't get mixed up. Using all double or single quotes just wouldn't work.
+
+Congratulations! Now we have a fully-working soundboard. The final page should look (something like) this:
+
+[[file:img/multi-shot2.png]]
+
+Obviously this is an ugly first attempt. Try adding a bit more flair and style to yours using some CSS. Add more images, buttons and sounds, and arrange them in a grid. Consider using either tables or divs for this. Go nuts!
+
+* Exercises
+
+1. Using the techniques described above, create your own soundboard with multiple different sounds.
+2. Work out how to embed videos and play them as part of your soundboard
+3. Can you use your soundboard as a musical instrument, creating a performance?
+4. Prank call a friend using sound clips of your favourite actor (such as Nicholas Cage). Actually, don't prank call anyone - we'll get into trouble. Just simulate a prank call with a disconnected phone.
+
+
+

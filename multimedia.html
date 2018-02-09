@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-02-09 Fri 08:42 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CODELAB I: Multimedia Tags</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Matthew Thompson" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">CODELAB I: Multimedia Tags</h1>
+<br>
+
+<div id="outline-container-orgb321994" class="outline-2">
+<h2 id="orgb321994">Week 16 Workshop: Create an interactive soundboard</h2>
+<div class="outline-text-2" id="text-orgb321994">
+<p>
+In this week's workshop, we'll combine your existing HTML and CSS skills with your newfound knowledge of the HTML <code>&lt;audio&gt;</code> tag. With just a little bit of extra Javascript, we're going to create an interactive soundboard. Here's how to get started:
+</p>
+</div>
+
+<div id="outline-container-org2a7d0e9" class="outline-3">
+<h3 id="org2a7d0e9">Step 1: Fire up the Brackets Editor</h3>
+<div class="outline-text-3" id="text-org2a7d0e9">
+<p>
+It's easiest to use Brackets for this because it runs a basic local web server for you. This is needed to access the mp3 files - web browsers won't let you access any audio files unless they're on a host somewhere.
+</p>
+
+<p>
+So, fire up the Brackets editor and type this in:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #F92672;">!DOCTYPE</span> html&gt;
+&lt;<span style="color: #A6E22E;">html</span>&gt;
+  &lt;<span style="color: #A6E22E;">head</span>&gt;
+    &lt;<span style="color: #A6E22E;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">My Awesome Soundboard</span>&lt;/<span style="color: #A6E22E;">title</span>&gt;
+  &lt;/<span style="color: #A6E22E;">head</span>&gt;
+
+  &lt;<span style="color: #A6E22E;">body</span>&gt;
+    &lt;<span style="color: #A6E22E;">h1</span>&gt;<span style="font-weight: bold; text-decoration: underline;">My Awesome Soundboard</span>&lt;/<span style="color: #A6E22E;">h1</span>&gt;
+  &lt;/<span style="color: #A6E22E;">body</span>&gt;
+
+&lt;/<span style="color: #A6E22E;">html</span>&gt;
+</pre>
+</div>
+
+<p>
+First, save this file in a new folder called "soundboard" somewhere where you can find it easily (like the desktop). Call the file "soundboard.html". Remember where this folder is - we'll need to add more files to it later.
+</p>
+
+<p>
+Once you've saved the file, click on the little thunderbolt icon on the top right of the Brackets window so that it turns yellow. It should look like this:
+</p>
+
+
+<div class="figure">
+<p><img src="img/multi-shot-brackets.png" alt="multi-shot-brackets.png" />
+</p>
+</div>
+
+<p>
+The Chrome web browser should pop up, showing the basic web page that you created:
+</p>
+
+
+<div class="figure">
+<p><img src="img/multi-shot1.png" alt="multi-shot1.png" />
+</p>
+</div>
+
+<p>
+Now we're ready to add some sounds! Go to <a href="http://freesound.org">freesound.org</a> to search for some sound effects. I want to create the soundtrack to a Michael Bay movie, which means that I want to have lots of gunshots and explosions. First, I'll download some gunfire sounds and save them as <code>fire.mp3</code> in the "soundboard" folder we just created. Now, I can put this file in the HTML page with the <code>&lt;audio&gt;</code> tag:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #F92672;">!DOCTYPE</span> html&gt;
+&lt;<span style="color: #A6E22E;">html</span>&gt;
+  &lt;<span style="color: #A6E22E;">head</span>&gt;
+    &lt;<span style="color: #A6E22E;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">My Awesome Soundboard</span>&lt;/<span style="color: #A6E22E;">title</span>&gt;
+  &lt;/<span style="color: #A6E22E;">head</span>&gt;
+
+  &lt;<span style="color: #A6E22E;">body</span>&gt;
+    &lt;<span style="color: #A6E22E;">h1</span>&gt;<span style="font-weight: bold; text-decoration: underline;">My Awesome Soundboard</span>&lt;/<span style="color: #A6E22E;">h1</span>&gt;
+
+    &lt;<span style="color: #A6E22E;">audio</span> <span style="color: #FD971F;">id</span>=<span style="color: #E6DB74;">"fire"</span> <span style="color: #FD971F;">src</span>=<span style="color: #E6DB74;">"./fire.mp3"</span>&gt;&lt;/<span style="color: #A6E22E;">audio</span>&gt;
+
+  &lt;/<span style="color: #A6E22E;">body</span>&gt;
+
+&lt;/<span style="color: #A6E22E;">html</span>&gt;
+</pre>
+</div>
+
+<p>
+Notice how we've given the audio element an id of "fire" - this is so that we can refer to it later in order to make it play.
+</p>
+
+<p>
+Now, we're going to add a button to click so that the audio will play. Add this line underneath the <code>&lt;audio&gt;</code> tag line we just added:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #A6E22E;">input</span> <span style="color: #FD971F;">type</span>=<span style="color: #E6DB74;">"button"</span> <span style="color: #FD971F;">value</span>=<span style="color: #E6DB74;">"PLAY"</span> <span style="color: #FD971F;">onclick</span>=<span style="color: #E6DB74;">"play()"</span>&gt;
+</pre>
+</div>
+
+<p>
+This will create a button on our page to click. Give it a try! Nothing will happen yet - we need to connect the button's <code>onclick</code> action to the audio element with a little bit of Javascript. We can do this by adding some Javascript code inside a script tag like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #F92672;">!DOCTYPE</span> html&gt;
+&lt;<span style="color: #A6E22E;">html</span>&gt;
+  &lt;<span style="color: #A6E22E;">head</span>&gt;
+    &lt;<span style="color: #A6E22E;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">My Awesome Soundboard</span>&lt;/<span style="color: #A6E22E;">title</span>&gt;
+  &lt;/<span style="color: #A6E22E;">head</span>&gt;
+
+  &lt;<span style="color: #A6E22E;">body</span>&gt;
+    &lt;<span style="color: #A6E22E;">h1</span>&gt;<span style="font-weight: bold; text-decoration: underline;">My Awesome Soundboard</span>&lt;/<span style="color: #A6E22E;">h1</span>&gt;
+
+    &lt;<span style="color: #A6E22E;">script</span>&gt;
+
+        function play() {
+            var audio = document.getElementById(<span style="color: #E6DB74;">"fire"</span>);
+            audio.play();
+        }
+
+    &lt;/<span style="color: #A6E22E;">script</span>&gt;
+
+    &lt;<span style="color: #A6E22E;">audio</span> <span style="color: #FD971F;">id</span>=<span style="color: #E6DB74;">"fire"</span> <span style="color: #FD971F;">src</span>=<span style="color: #E6DB74;">"./fire.mp3"</span>&gt;&lt;/<span style="color: #A6E22E;">audio</span>&gt;
+
+    &lt;<span style="color: #A6E22E;">input</span> <span style="color: #FD971F;">type</span>=<span style="color: #E6DB74;">"button"</span> <span style="color: #FD971F;">value</span>=<span style="color: #E6DB74;">"PLAY"</span> <span style="color: #FD971F;">onclick</span>=<span style="color: #E6DB74;">"play()"</span>&gt;
+
+  &lt;/<span style="color: #A6E22E;">body</span>&gt;
+
+&lt;/<span style="color: #A6E22E;">html</span>&gt;
+</pre>
+</div>
+
+<p>
+Let's take a closer look at the Javascript we just added:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-javascript"><span style="color: #F92672;">function</span> <span style="color: #A6E22E;">play</span><span style="color: #AE81FF;">()</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #F92672;">var</span> <span style="color: #FD971F;">audioElement</span> = document.getElementById<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"fire"</span><span style="color: #66D9EF;">)</span>;
+  audioElement.play<span style="color: #66D9EF;">()</span>;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+
+<p>
+What does this do? Well, it creates a function called "play" which we can call whenever we want to play an audio file. The first line of the function grabs any element we have in the webpage with an id of "fire". As we gave the <code>&lt;audio&gt;</code> element that id, that's the element that gets assigned to the <code>audioElement</code> variable (using the <code>var audioElement =</code> statement). Then we just call <code>.play()</code> on that element to tell it to play. It's like we're reaching inside the HTML document, grabbing the audio tag, and telling it to play the audio.
+</p>
+
+<p>
+OK, so this is great - we have some gunfire for our Michael Bay soundscape. Time to add some explosions.
+</p>
+
+<p>
+Let's make it more visual this time - let's have it so that you have to click on an image of an explosion to hear the sound. Do a web search for explosion images and find your favourite one. Here's the one that I used:
+</p>
+
+
+<div class="figure">
+<p><img src="img/explosion.jpg" alt="explosion.jpg" />
+</p>
+</div>
+
+<p>
+Save the file as "explosion.jpg" in the same "soundboard" folder from earlier.
+</p>
+
+<p>
+Now, let's get a good-sounding explosion noise to go with it. Like before, you can search on <a href="http://freesound.org">freesound.org</a> to find a sound. You could also go on <a href="http://youtube.com">youtube</a> to find a good sound and convert it to an mp3 using a web service such as <a href="http://youtubemp3.to/">youtubemp3</a>.
+</p>
+
+<p>
+Now that we have our explosion image and sound, let's add them to the webpage:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #A6E22E;">audio</span> <span style="color: #FD971F;">id</span>=<span style="color: #E6DB74;">"explosion"</span> <span style="color: #FD971F;">src</span>=<span style="color: #E6DB74;">"./explosion.mp3"</span>&gt;&lt;/<span style="color: #A6E22E;">audio</span>&gt;
+
+&lt;<span style="color: #A6E22E;">img</span> <span style="color: #FD971F;">src</span>=<span style="color: #E6DB74;">"./explosion.jpg"</span> <span style="color: #FD971F;">onclick</span>=<span style="color: #E6DB74;">"play()"</span>&gt;
+</pre>
+</div>
+
+<p>
+This time, we've give the audio tag an id of "explosion", to differentiate it from the gunfire sounds. Also, like with the button from before, we've added an <code>onclick=play()</code> attribute to the image. This tells it to call the <code>play()</code> Javascript function when you click on it.
+</p>
+
+<p>
+Save the file, and try it out in the browser. Something's not quite right - clicking on the image triggers a sound, but it's the gunfire sound from before, not our lovely new explosion. This is because the Javascript we wrote before always plays the same sound. We <i>could</i> define a new function to play our explosion file, but we can do better than that. Instead, let's rewrite the existing function so that it's capable of playing any sound you tell it to:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-javascript"><span style="color: #F92672;">function</span> <span style="color: #A6E22E;">play</span><span style="color: #AE81FF;">(</span><span style="color: #FD971F;">id</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #F92672;">var</span> <span style="color: #FD971F;">audio</span> = document.getElementById<span style="color: #66D9EF;">(</span>id<span style="color: #66D9EF;">)</span>;
+  audio.play<span style="color: #66D9EF;">()</span>;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+
+<p>
+Now, the <code>play</code> function takes one argument: id. This is the id of the audio element you want it to play. It now uses that argument in the first line to select it from the HTML document (instead of always "fire"), and then plays it.
+</p>
+
+<p>
+Alter the button and image so that the <code>onclick=play()</code> attributes now call the <code>play</code> function with the "fire" and "explosion" ids, respectively. The whole page should now look like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #A6E22E;">html</span>&gt;
+&lt;<span style="color: #A6E22E;">head</span>&gt;&lt;<span style="color: #A6E22E;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Sound Board</span>&lt;/<span style="color: #A6E22E;">title</span>&gt;&lt;/<span style="color: #A6E22E;">head</span>&gt;
+
+&lt;<span style="color: #A6E22E;">body</span>&gt;
+
+    &lt;<span style="color: #A6E22E;">script</span>&gt;
+
+    function play(id) {
+        var audio = document.getElementById(id);
+        audio.play();
+    }
+
+    &lt;/<span style="color: #A6E22E;">script</span>&gt;
+
+    &lt;<span style="color: #A6E22E;">audio</span> <span style="color: #FD971F;">id</span>=<span style="color: #E6DB74;">"fire"</span> <span style="color: #FD971F;">src</span>=<span style="color: #E6DB74;">"./fire.mp3"</span>&gt;&lt;/<span style="color: #A6E22E;">audio</span>&gt;
+    &lt;<span style="color: #A6E22E;">audio</span> <span style="color: #FD971F;">id</span>=<span style="color: #E6DB74;">"explosion"</span> <span style="color: #FD971F;">src</span>=<span style="color: #E6DB74;">"./explosion.mp3"</span>&gt;&lt;/<span style="color: #A6E22E;">audio</span>&gt;
+
+    &lt;<span style="color: #A6E22E;">img</span> <span style="color: #FD971F;">src</span>=<span style="color: #E6DB74;">"explosion.jpg"</span> <span style="color: #FD971F;">onclick</span>=<span style="color: #E6DB74;">"play('explosion')"</span>&gt;
+    &lt;<span style="color: #A6E22E;">input</span> <span style="color: #FD971F;">type</span>=<span style="color: #E6DB74;">"button"</span> <span style="color: #FD971F;">value</span>=<span style="color: #E6DB74;">"PLAY"</span> <span style="color: #FD971F;">onclick</span>=<span style="color: #E6DB74;">"play('fire')"</span>&gt;
+
+    &lt;/<span style="color: #A6E22E;">body</span>&gt;
+&lt;/<span style="color: #A6E22E;">html</span>&gt;
+</pre>
+</div>
+
+<p>
+Note that we've put single quotes inside double quotes for <code>onclick="play('explosion')"</code> and <code>onclick="play('fire')"</code>. We need to do this so that the inner and outer quote marks don't get mixed up. Using all double or single quotes just wouldn't work.
+</p>
+
+<p>
+Congratulations! Now we have a fully-working soundboard. The final page should look (something like) this:
+</p>
+
+
+<div class="figure">
+<p><img src="img/multi-shot2.png" alt="multi-shot2.png" />
+</p>
+</div>
+
+<p>
+Obviously this is an ugly first attempt. Try adding a bit more flair and style to yours using some CSS. Add more images, buttons and sounds, and arrange them in a grid. Consider using either tables or divs for this. Go nuts!
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf7ee9fc" class="outline-2">
+<h2 id="orgf7ee9fc">Exercises</h2>
+<div class="outline-text-2" id="text-orgf7ee9fc">
+<ol class="org-ol">
+<li>Using the techniques described above, create your own soundboard with multiple different sounds.</li>
+<li>Work out how to embed videos and play them as part of your soundboard</li>
+<li>Can you use your soundboard as a musical instrument, creating a performance?</li>
+<li>Prank call a friend using sound clips of your favourite actor (such as Nicholas Cage). Actually, don't prank call anyone - we'll get into trouble. Just simulate a prank call with a disconnected phone.</li>
+</ol>
+</div>
+</div>
+</div>
+</body>
+</html>
