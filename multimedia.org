@@ -1,9 +1,9 @@
-#+TITLE: CODELAB I: Multimedia Tags
+#+TITLE: The Web, Untangled
 #+HTML:<br>
 
-* Week 16 Workshop: Create an interactive soundboard
+* Project: Create an interactive soundboard with HTML and Javascript
 
-In this week's workshop, we'll combine your existing HTML and CSS skills with your newfound knowledge of the HTML ~<audio>~ tag. With just a little bit of extra Javascript, we're going to create an interactive soundboard. Here's how to get started:
+For this project, we'll combine your existing HTML and CSS skills with the HTML ~<audio>~ tag for playing audio files. With just a little bit of extra Javascript, we're going to create an interactive soundboard. Here's how to get started:
 
 ** Step 1: Fire up the Brackets Editor
 It's easiest to use Brackets for this because it runs a basic local web server for you. This is needed to access the mp3 files - web browsers won't let you access any audio files unless they're on a host somewhere.

@@ -81,6 +81,10 @@ img {
     transform: translateX(-50%);
 }
 
+@media print {
+    body {-webkit-print-color-adjust: exact;}
+}
+
 
 /* #table-of-contents { */
 /*     width: 300px; */
