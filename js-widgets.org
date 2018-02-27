@@ -3,7 +3,19 @@
 
 Today's task is to use Javascript to add some "widgets" to your Bath Spa Facebook clone. This will actually make it more like MySpace than Facebook!
 
-Here are some ideas for widgets / features you can add:
+Remember, this is how you change HTML attributes in Javascript:
+
+#+BEGIN_SRC js
+document.getElementById(#id).onclick = functionName; // set a function to trigger when the user clicks on something with the id #id
+document.getElementById(#id).value = "Hello!"; // set the value of an element (such as the text in a text box) to the string "Hello!"
+document.getElementById(#id).innerHTML = "<div><p>DIVs within DIVs!</p></div>"; // putting some HTML code inside an element
+#+END_SRC
+
+If you need to refresh your Javascript memory, [[http://eloquentjavascript.net/][Eloquent Javascript]] is an excellent online textbook that is available for free.
+
+If you're a confident programmer and need a quick way to check how to do things in Javascript, [[https://learnxinyminutes.com/docs/javascript/][Learn X in Y minutes]] is a great resource.
+ 
+Here are some ideas for widgets / features you can add to your site:
 
 * Easy
 

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-02-27 Tue 07:46 -->
+<!-- 2018-02-27 Tue 07:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Javascript Widget Challenge</title>
@@ -67,34 +67,53 @@ Today's task is to use Javascript to add some "widgets" to your Bath Spa Faceboo
 </p>
 
 <p>
-Here are some ideas for widgets / features you can add:
+Remember, this is how you change HTML attributes in Javascript:
 </p>
 
-<div id="outline-container-orgda9c91f" class="outline-2">
-<h2 id="orgda9c91f">Easy</h2>
-<div class="outline-text-2" id="text-orgda9c91f">
+<div class="org-src-container">
+<pre class="src src-js">document.getElementById<span style="color: #AE81FF;">(</span>#id<span style="color: #AE81FF;">)</span>.onclick = functionName; <span style="color: #75715E;">// </span><span style="color: #75715E;">set a function to trigger when the user clicks on something with the id #id</span>
+document.getElementById<span style="color: #AE81FF;">(</span>#id<span style="color: #AE81FF;">)</span>.value = <span style="color: #E6DB74;">"Hello!"</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">set the value of an element (such as the text in a text box) to the string "Hello!"</span>
+document.getElementById<span style="color: #AE81FF;">(</span>#id<span style="color: #AE81FF;">)</span>.innerHTML = <span style="color: #E6DB74;">"&lt;div&gt;&lt;p&gt;DIVs within DIVs!&lt;/p&gt;&lt;/div&gt;"</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">putting some HTML code inside an element</span>
+</pre>
 </div>
-<div id="outline-container-org54c7b91" class="outline-3">
-<h3 id="org54c7b91">Magic 8-Ball</h3>
-<div class="outline-text-3" id="text-org54c7b91">
+
+<p>
+If you need to refresh your Javascript memory, <a href="http://eloquentjavascript.net/">Eloquent Javascript</a> is an excellent online textbook that is available for free.
+</p>
+
+<p>
+If you're a confident programmer and need a quick way to check how to do things in Javascript, <a href="https://learnxinyminutes.com/docs/javascript/">Learn X in Y minutes</a> is a great resource.
+</p>
+
+<p>
+Here are some ideas for widgets / features you can add to your site:
+</p>
+
+<div id="outline-container-org84ecd6f" class="outline-2">
+<h2 id="org84ecd6f">Easy</h2>
+<div class="outline-text-2" id="text-org84ecd6f">
+</div>
+<div id="outline-container-org12b2c3a" class="outline-3">
+<h3 id="org12b2c3a">Magic 8-Ball</h3>
+<div class="outline-text-3" id="text-org12b2c3a">
 <p>
 This widget should have an image of an 8-ball in the middle. When you click on it, it says something mysterious like "It looks doubtful" or "The outlook is good".
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb56a443" class="outline-3">
-<h3 id="orgb56a443">Random Status Generator</h3>
-<div class="outline-text-3" id="text-orgb56a443">
+<div id="outline-container-org8340153" class="outline-3">
+<h3 id="org8340153">Random Status Generator</h3>
+<div class="outline-text-3" id="text-org8340153">
 <p>
 Add an extra button next to the status update text box that says something like "whatever". When you click on it, it will randomly select a status such as "Feeling random today! YOLO!".
 </p>
 </div>
 </div>
 
-<div id="outline-container-org639c42b" class="outline-3">
-<h3 id="org639c42b">Emoji Bar</h3>
-<div class="outline-text-3" id="text-org639c42b">
+<div id="outline-container-org7d84da0" class="outline-3">
+<h3 id="org7d84da0">Emoji Bar</h3>
+<div class="outline-text-3" id="text-org7d84da0">
 <p>
 Have a bunch of emojis below the status update text box. If you click on one, it sets that as your status.
 </p>
@@ -102,40 +121,40 @@ Have a bunch of emojis below the status update text box. If you click on one, it
 </div>
 </div>
 
-<div id="outline-container-org264e3a0" class="outline-2">
-<h2 id="org264e3a0">Tricky</h2>
-<div class="outline-text-2" id="text-org264e3a0">
+<div id="outline-container-orgb84c4c8" class="outline-2">
+<h2 id="orgb84c4c8">Tricky</h2>
+<div class="outline-text-2" id="text-orgb84c4c8">
 </div>
-<div id="outline-container-org1508391" class="outline-3">
-<h3 id="org1508391">Image Carousel</h3>
-<div class="outline-text-3" id="text-org1508391">
+<div id="outline-container-orgee1591d" class="outline-3">
+<h3 id="orgee1591d">Image Carousel</h3>
+<div class="outline-text-3" id="text-orgee1591d">
 <p>
 Have a selection of "cover" / background images that change after a certain amount of time. You may need to look into how to use timers in Javascript. Bonus points if you can animate the transitions! Look into CSS transitions for a simple way to do this.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org282fe13" class="outline-3">
-<h3 id="org282fe13">Calculator</h3>
-<div class="outline-text-3" id="text-org282fe13">
+<div id="outline-container-org8a11ed7" class="outline-3">
+<h3 id="org8a11ed7">Calculator</h3>
+<div class="outline-text-3" id="text-org8a11ed7">
 <p>
 Remember how we made a calculator in PHP? And it turned out kinda&#x2026; not great? Well, now's your chance to fix that! It's much easier to make one in Javascript.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org7e27104" class="outline-3">
-<h3 id="org7e27104">Clock Widget</h3>
-<div class="outline-text-3" id="text-org7e27104">
+<div id="outline-container-org2c66d02" class="outline-3">
+<h3 id="org2c66d02">Clock Widget</h3>
+<div class="outline-text-3" id="text-org2c66d02">
 <p>
 Create a digital (or analogue if you're feeling really ambitious) clock to display the time and date somewhere on your profile page.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orged93fa3" class="outline-3">
-<h3 id="orged93fa3">Tic-tac-toe game</h3>
-<div class="outline-text-3" id="text-orged93fa3">
+<div id="outline-container-org82ac7f0" class="outline-3">
+<h3 id="org82ac7f0">Tic-tac-toe game</h3>
+<div class="outline-text-3" id="text-org82ac7f0">
 <p>
 Add a simple game of noughts-and-crosses to your website. You can do this using simple clickable div elements, or buttons styled with CSS.
 </p>
@@ -143,40 +162,40 @@ Add a simple game of noughts-and-crosses to your website. You can do this using 
 </div>
 </div>
 
-<div id="outline-container-org174278e" class="outline-2">
-<h2 id="org174278e">Challenging</h2>
-<div class="outline-text-2" id="text-org174278e">
+<div id="outline-container-orgfcabc3b" class="outline-2">
+<h2 id="orgfcabc3b">Challenging</h2>
+<div class="outline-text-2" id="text-orgfcabc3b">
 </div>
-<div id="outline-container-orgde92f15" class="outline-3">
-<h3 id="orgde92f15">Music Player</h3>
-<div class="outline-text-3" id="text-orgde92f15">
+<div id="outline-container-org7afedc1" class="outline-3">
+<h3 id="org7afedc1">Music Player</h3>
+<div class="outline-text-3" id="text-org7afedc1">
 <p>
 Using this <a href="./multimedia.html">Audio API guide</a>, embed some MP3 songs into your site and add some controls to create a basic MP3 player.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org3ea6062" class="outline-3">
-<h3 id="org3ea6062">Weather Widget</h3>
-<div class="outline-text-3" id="text-org3ea6062">
+<div id="outline-container-orgd187fb4" class="outline-3">
+<h3 id="orgd187fb4">Weather Widget</h3>
+<div class="outline-text-3" id="text-orgd187fb4">
 <p>
 Using a weather API such as <a href="https://developer.yahoo.com/weather">Yahoo! Weather</a> or <a href="http://wttr.in">wttr.in</a>, display an icon and information for today's weather.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org9393cc2" class="outline-3">
-<h3 id="org9393cc2">Location Widget</h3>
-<div class="outline-text-3" id="text-org9393cc2">
+<div id="outline-container-org1486a57" class="outline-3">
+<h3 id="org1486a57">Location Widget</h3>
+<div class="outline-text-3" id="text-org1486a57">
 <p>
 Use Javascript's location service API to check the user's location and display it on the page. If you want an extra challenge, you can use the user's location to update the weather widget.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org42e7580" class="outline-3">
-<h3 id="org42e7580">A way to add/remove widgets to the site</h3>
-<div class="outline-text-3" id="text-org42e7580">
+<div id="outline-container-org8f06c3a" class="outline-3">
+<h3 id="org8f06c3a">A way to add/remove widgets to the site</h3>
+<div class="outline-text-3" id="text-org8f06c3a">
 <p>
 Include a way to add (using a menu) or remove widgets to your page.
 </p>
