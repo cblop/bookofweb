@@ -6,9 +6,14 @@ Today's task is to use Javascript to add some "widgets" to your Bath Spa Faceboo
 Remember, this is how you change HTML attributes in Javascript:
 
 #+BEGIN_SRC js
-document.getElementById(#id).onclick = functionName; // set a function to trigger when the user clicks on something with the id #id
-document.getElementById(#id).value = "Hello!"; // set the value of an element (such as the text in a text box) to the string "Hello!"
-document.getElementById(#id).innerHTML = "<div><p>DIVs within DIVs!</p></div>"; // putting some HTML code inside an element
+// set a function to trigger when the user clicks on something with the id #id:
+document.getElementById(#id).onclick = functionName; 
+
+// set the value of an element (such as the text in a text box) to the string "Hello!":
+document.getElementById(#id).value = "Hello!"; 
+
+// putting some HTML code inside an element to add extra DIVs to a page:
+document.getElementById(#id).innerHTML = "<div><p>DIVs within DIVs!</p></div>"; 
 #+END_SRC
 
 If you need to refresh your Javascript memory, [[http://eloquentjavascript.net/][Eloquent Javascript]] is an excellent online textbook that is available for free.
