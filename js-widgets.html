@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-02-27 Tue 07:46 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Javascript Widget Challenge</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Matthew Thompson" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">The Javascript Widget Challenge</h1>
+<br>
+
+<p>
+Today's task is to use Javascript to add some "widgets" to your Bath Spa Facebook clone. This will actually make it more like MySpace than Facebook!
+</p>
+
+<p>
+Here are some ideas for widgets / features you can add:
+</p>
+
+<div id="outline-container-orgda9c91f" class="outline-2">
+<h2 id="orgda9c91f">Easy</h2>
+<div class="outline-text-2" id="text-orgda9c91f">
+</div>
+<div id="outline-container-org54c7b91" class="outline-3">
+<h3 id="org54c7b91">Magic 8-Ball</h3>
+<div class="outline-text-3" id="text-org54c7b91">
+<p>
+This widget should have an image of an 8-ball in the middle. When you click on it, it says something mysterious like "It looks doubtful" or "The outlook is good".
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb56a443" class="outline-3">
+<h3 id="orgb56a443">Random Status Generator</h3>
+<div class="outline-text-3" id="text-orgb56a443">
+<p>
+Add an extra button next to the status update text box that says something like "whatever". When you click on it, it will randomly select a status such as "Feeling random today! YOLO!".
+</p>
+</div>
+</div>
+
+<div id="outline-container-org639c42b" class="outline-3">
+<h3 id="org639c42b">Emoji Bar</h3>
+<div class="outline-text-3" id="text-org639c42b">
+<p>
+Have a bunch of emojis below the status update text box. If you click on one, it sets that as your status.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org264e3a0" class="outline-2">
+<h2 id="org264e3a0">Tricky</h2>
+<div class="outline-text-2" id="text-org264e3a0">
+</div>
+<div id="outline-container-org1508391" class="outline-3">
+<h3 id="org1508391">Image Carousel</h3>
+<div class="outline-text-3" id="text-org1508391">
+<p>
+Have a selection of "cover" / background images that change after a certain amount of time. You may need to look into how to use timers in Javascript. Bonus points if you can animate the transitions! Look into CSS transitions for a simple way to do this.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org282fe13" class="outline-3">
+<h3 id="org282fe13">Calculator</h3>
+<div class="outline-text-3" id="text-org282fe13">
+<p>
+Remember how we made a calculator in PHP? And it turned out kinda&#x2026; not great? Well, now's your chance to fix that! It's much easier to make one in Javascript.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7e27104" class="outline-3">
+<h3 id="org7e27104">Clock Widget</h3>
+<div class="outline-text-3" id="text-org7e27104">
+<p>
+Create a digital (or analogue if you're feeling really ambitious) clock to display the time and date somewhere on your profile page.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orged93fa3" class="outline-3">
+<h3 id="orged93fa3">Tic-tac-toe game</h3>
+<div class="outline-text-3" id="text-orged93fa3">
+<p>
+Add a simple game of noughts-and-crosses to your website. You can do this using simple clickable div elements, or buttons styled with CSS.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org174278e" class="outline-2">
+<h2 id="org174278e">Challenging</h2>
+<div class="outline-text-2" id="text-org174278e">
+</div>
+<div id="outline-container-orgde92f15" class="outline-3">
+<h3 id="orgde92f15">Music Player</h3>
+<div class="outline-text-3" id="text-orgde92f15">
+<p>
+Using this <a href="./multimedia.html">Audio API guide</a>, embed some MP3 songs into your site and add some controls to create a basic MP3 player.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3ea6062" class="outline-3">
+<h3 id="org3ea6062">Weather Widget</h3>
+<div class="outline-text-3" id="text-org3ea6062">
+<p>
+Using a weather API such as <a href="https://developer.yahoo.com/weather">Yahoo! Weather</a> or <a href="http://wttr.in">wttr.in</a>, display an icon and information for today's weather.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9393cc2" class="outline-3">
+<h3 id="org9393cc2">Location Widget</h3>
+<div class="outline-text-3" id="text-org9393cc2">
+<p>
+Use Javascript's location service API to check the user's location and display it on the page. If you want an extra challenge, you can use the user's location to update the weather widget.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org42e7580" class="outline-3">
+<h3 id="org42e7580">A way to add/remove widgets to the site</h3>
+<div class="outline-text-3" id="text-org42e7580">
+<p>
+Include a way to add (using a menu) or remove widgets to your page.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
