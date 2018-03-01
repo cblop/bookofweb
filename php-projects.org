@@ -1,0 +1,30 @@
+#+TITLE:The Web, Untangled
+#+HTML:<br>
+
+| [[./#][◀ MySQL]] | [[./index.html][Table of contents]] | [[./#][AJAX ▶]] |
+| <l>     | <c>               |    <r> |
+
+* PHP Projects
+
+** Calculator
+*** Create a form for the numbers and operation
+**** Solution
+# (Video and code link)
+*** Make the page display the result of the operation
+**** Solution
+# (Video and code link)
+*** Style the calculator with CSS and/or Bootstrap
+**** Solution
+# (Video and code link)
+** Dating Website
+*** Create a user database 
+**** Solution
+# (Video and code link)
+*** Create a "new user" form
+**** Solution
+# (Video and code link)
+*** Add a "user search" facility
+**** Solution
+# (Video and code link)
+** The New Facebook
+*** 

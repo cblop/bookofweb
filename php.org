@@ -472,6 +472,14 @@ if($results = mysqli_query($connection, $sql)) {
 
 While this may appear to be a reasonably daunting piece of code, don't worry too much about it - you can get away with copying and pasting it a lot of the time. The part that you will have to change is the ~$echo $row['name'] . "<br>";~ line in the middle. For example: instead of printing the results, you could add them to an array to use later.
 
+Now that you have gotten everything you need from the database, it's time to close the connection:
+
+#+BEGIN_SRC php
+mysqli_close($connection);
+#+END_SRC
+
+It's important to always put this after any code that uses ~mysqli~. Don't worry too much if you forget it (it's no the end of the world), but it's another thing you should remember to copy and paste in at the end.
+
 The full code for querying the database is in [[file:code/2_send_sql_query.php][this file]].
 
 ** Creating a new database

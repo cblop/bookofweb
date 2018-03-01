@@ -1,0 +1,27 @@
+#+TITLE:CodeLab I
+#+HTML:<br>
+
+* Week 18 workshop: HTML Mystery Game
+
+This week's task is to design and create an HTML "mystery" game, where you have to solve puzzles to get to the next page.
+
+A good example of this kind of game is "Cipher": http://gamemastertips.com/cipher/cipher.htm. Have a play through it and see how far you can get!
+
+Some hints:
+
+- Level 1 is easy. But things get a little bit trickier once you get to level 2!
+- Look at the title in the tab for a clue as to what you should do.
+- The idea is to "cheat" to get to the next level. What's the quickest way to get to level 3? Is there something you can do to the URL in the address bar to get there?
+
+This game is actually pretty tricky, but can be addictive once you get the hang of it! Let me know how far you get next week.
+
+Once you've got the idea, I want you to create your own version of this game. You can create images and sounds with clues embedded in them. Or you can embed clues from other websites. Here's some ideas to get you going:
+
+- one clue could be an embedded Spotify playlist where the first letters of each song title spell a word that you have to type into the URL bar
+- embed a Google map with a route planned that ends with a note with a link to the next page
+- embed a sound of yourself saying the name of the next URL to type. But backwards! The player of the game will have to download the sound and reverse it using audio software such as Audacity.
+- embed several Youtube videos into the site, which start at different times. When you play them, a character from a movie says a word. You have to work out how to form a sentence from these words, and type it into a text box, which will take you to the next page (you can use HTML form validation to do this).
+- (this is an advanced one!) read the Wikipedia article on [[https://en.wikipedia.org/wiki/Steganography][steganography]], and see if you can embed a hidden message inside an image!
+
+Have fun with it! I would love to see what you come up with in next week's workshop.
+
