@@ -300,7 +300,7 @@ The above goes through each item of the associative array and assigns its key to
 
 * Using Web Forms with PHP
 
-*** GET vs POST requests
+** GET vs POST requests
 When you make an HTML form, you can specify the type of /request/ that is sent:
 
 #+BEGIN_SRC html
@@ -328,10 +328,10 @@ So why use GET requests at all? Well, they can be useful in case you want to sen
 http://myfancyshop.com/products.php?productid=324
 #+END_SRC
 
-*** PHP ~$_GET~ and ~$_POST~ superglobals
-:PROPERTIES:
-:CUSTOM_ID: php_superglobals
-:END:
+** PHP ~$_GET~ and ~$_POST~ superglobals
+   :PROPERTIES:
+   :CUSTOM_ID: php_superglobals
+   :END:
 Once you've sent the data to a PHP page using your web form, you need to access it using a /superglobal/ variable. This changes according to the method you've used to send the data. If you used a /GET/ request, you'd bind the form data to variables using ~$_GET['']~. Take this HTML form, for example:
 
 #+BEGIN_SRC html
