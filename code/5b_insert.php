@@ -19,12 +19,12 @@
         $name = $_GET['name'];
         $height = $_GET['height'];
         $weight = $_GET['weight'];
-        $sex = $_GET['sex'];A
+        $sex = $_GET['sex'];
         
         $sql = "INSERT INTO user (name, sex, height, weight) VALUES ('$name', '$sex', $height, $weight);";
         
         if(mysqli_query($connection, $sql)) {
-            echo "Table successfully created";
+            echo "Row successfully inserted";
         } else {
             echo "ERROR: Could not execute $sql. " . mysqli_error($connection);
         }

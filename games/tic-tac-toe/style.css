@@ -1,0 +1,31 @@
+h1 {
+    text-align: center;
+}
+
+#message {
+    padding-top: 20px;
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+td {
+    width: 32px;
+    height: 32px;
+    border: 1px solid black;
+    padding: 50px;
+    text-align: center;
+}
+
+.invert {
+    background-color: black;
+    color: white;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 20pt;
+}

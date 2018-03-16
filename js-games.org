@@ -1,0 +1,38 @@
+#+TITLE: CodeLab I, Workshop 20
+#+HTML:<br>
+
+* Javascript Game Challenge
+
+** Magic 8-Ball
+
+Magic 8-balls are toys that are designed to help people make decisions. You ask a question, shake the ball, and it gives you a positive or negative answer.
+
+Create a web page with an image of a magic 8-ball and a button that says something like "shake me". When you click on the button, some text should appear with positive, negative, or vague phrases such as: "it looks doubtful", "it appears certain", "the outcome is unclear" or "shake again to find out".
+
+This should involve the simple creation of an array, and the random selection of an element from it. The code below
+
+#+BEGIN_SRC js
+// a javascript array:
+var myArray = ["apples", "oranges", "pears", "apricots"];
+
+// generate a random number between 0 and the array length
+var rand = Math.floor((Math.random() * myArray.length));
+
+// print a random number
+console.log(myArray[rand]);
+#+END_SRC
+
+** Rock, Paper, Scissors
+
+Create a game of "rock, paper, scissors" in Javascript. There should be three buttons or images on the page: "rock", "paper", and "scissors". The player clicks on one, and the computer randomly chooses a response. The winner is then determined through these rules:
+
+- rock beats scissors
+- scissors beats paper
+- paper beats rock
+
+For added fun, try implementing a "best 2 of 3" or "best 3 of 5" mode.
+
+# ** Snap
+# Make a game with some number of tiles (maybe 25) that you click to turn over. When turned over, 
+
+# ** Tic-tac-toe

@@ -226,7 +226,7 @@ As PHP is a /dynamic/ language, you can mix different types in the same array:
 $mixedTypes = ["hello", 12, [132, "yes"], 28.22, "bye", true];
 #+END_SRC
 
-Use the array_push() function to add elements to an array. This changes the value of the array in-place (rather than returning the changed array):
+Use the array\_push() function to add elements to an array. This changes the value of the array in-place (rather than returning the changed array):
 
 #+HTML:<div class="wide">
 #+BEGIN_SRC php
@@ -484,9 +484,22 @@ The full code for querying the database is in [[file:code/2_send_sql_query.php][
 
 ** Creating a new database
 
+It's easy enough to create a new database using a web interface to MySQL such as [[https://www.phpmyadmin.net/][phpMyAdmin]], but you can also do this from PHP should you need to. You simply change your sql query to use the ~CREATE DATABASE~ command:
+
+#+BEGIN_SRC php
+$dbname = "films";
+
+$sql = "CREATE DATABASE $dbname;";
+#+END_SRC
+
+
 The full code for creating a new database is in [[file:code/3_create_database.php][this file]].
 
 ** Creating a new table
+
+#+BEGIN_SRC php
+
+#+END_SRC
 
 The full code for creating a table inside a database is [[file:code/4_create_table.php][here]].
 
