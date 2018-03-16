@@ -45,7 +45,8 @@ It would be useful to use a "for" loop in Javascript for this game. Here's a bas
 // here's our array again
 var myArray = ["apples", "oranges", "pears", "apricots"];
 
-// this "for" loop goes through the array and prints each one to the console
+// this "for" loop goes through the array
+// and prints each one to the console
 for (var i = 0; i < myArray.length; i++) {
   console.log(myArray[i]);
 }
