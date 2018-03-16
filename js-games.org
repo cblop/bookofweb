@@ -16,7 +16,7 @@ This should involve the simple creation of an array, and the random selection of
 var myArray = ["apples", "oranges", "pears", "apricots"];
 
 // generate a random number between 0 and the array length
-var rand = Math.floor((Math.random() * myArray.length));
+var rand = Math.floor(Math.random() * myArray.length);
 
 // print a random number
 console.log(myArray[rand]);

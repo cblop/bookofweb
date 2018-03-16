@@ -60,13 +60,13 @@ for the JavaScript code in this tag.
 <h1 class="title">CodeLab I, Workshop 20</h1>
 </header><br>
 
-<div id="outline-container-org1b253bb" class="outline-2">
-<h2 id="org1b253bb">Javascript Game Challenge</h2>
-<div class="outline-text-2" id="text-org1b253bb">
+<div id="outline-container-orgb6a9f6c" class="outline-2">
+<h2 id="orgb6a9f6c">Javascript Game Challenge</h2>
+<div class="outline-text-2" id="text-orgb6a9f6c">
 </div>
-<div id="outline-container-org035daaf" class="outline-3">
-<h3 id="org035daaf">Magic 8-Ball</h3>
-<div class="outline-text-3" id="text-org035daaf">
+<div id="outline-container-org67ab9f3" class="outline-3">
+<h3 id="org67ab9f3">Magic 8-Ball</h3>
+<div class="outline-text-3" id="text-org67ab9f3">
 <p>
 Magic 8-balls are toys that are designed to help people make decisions. You ask a question, shake the ball, and it gives you a positive or negative answer.
 </p>
@@ -80,22 +80,22 @@ This should involve the simple creation of an array, and the random selection of
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #75715E;">// </span><span style="color: #75715E;">a javascript array:</span>
-<span style="color: #F92672;">var</span> <span style="color: #FD971F;">myArray</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">"apples"</span>, <span style="color: #E6DB74;">"oranges"</span>, <span style="color: #E6DB74;">"pears"</span>, <span style="color: #E6DB74;">"apricots"</span><span style="color: #AE81FF;">]</span>;
+<pre class="src src-js"><span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">a javascript array:</span>
+<span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">myArray</span> = <span style="color: #3a81c3;">[</span><span style="color: #2d9574;">"apples"</span>, <span style="color: #2d9574;">"oranges"</span>, <span style="color: #2d9574;">"pears"</span>, <span style="color: #2d9574;">"apricots"</span><span style="color: #3a81c3;">]</span>;
 
-<span style="color: #75715E;">// </span><span style="color: #75715E;">generate a random number between 0 and the array length</span>
-<span style="color: #F92672;">var</span> <span style="color: #FD971F;">rand</span> = Math.floor<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">(</span>Math.random<span style="color: #A6E22E;">()</span> * myArray.length<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
+<span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">generate a random number between 0 and the array length</span>
+<span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">rand</span> = Math.floor<span style="color: #3a81c3;">(</span>Math.random<span style="color: #6c3163;">()</span> * myArray.length<span style="color: #3a81c3;">)</span>;
 
-<span style="color: #75715E;">// </span><span style="color: #75715E;">print a random number</span>
-console.log<span style="color: #AE81FF;">(</span>myArray<span style="color: #66D9EF;">[</span>rand<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>;
+<span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">print a random number</span>
+console.log<span style="color: #3a81c3;">(</span>myArray<span style="color: #6c3163;">[</span>rand<span style="color: #6c3163;">]</span><span style="color: #3a81c3;">)</span>;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org5fe73d0" class="outline-3">
-<h3 id="org5fe73d0">Rock, Paper, Scissors</h3>
-<div class="outline-text-3" id="text-org5fe73d0">
+<div id="outline-container-orgd844cf0" class="outline-3">
+<h3 id="orgd844cf0">Rock, Paper, Scissors</h3>
+<div class="outline-text-3" id="text-orgd844cf0">
 <p>
 Create a game of "rock, paper, scissors" in Javascript. There should be three buttons or images on the page: "rock", "paper", and "scissors". The player clicks on one, and the computer randomly chooses a response. The winner is then determined through these rules:
 </p>
@@ -112,9 +112,9 @@ For added fun, try implementing a "best 2 of 3" or "best 3 of 5" mode.
 </div>
 </div>
 
-<div id="outline-container-org1aea72a" class="outline-3">
-<h3 id="org1aea72a">Snap</h3>
-<div class="outline-text-3" id="text-org1aea72a">
+<div id="outline-container-org5045894" class="outline-3">
+<h3 id="org5045894">Snap</h3>
+<div class="outline-text-3" id="text-org5045894">
 <p>
 Make a game with some number of tiles (maybe 25) that you click to turn over. When two are turned over, the game checks to see if they match. If they do, the tiles stay turned over or turn a different colour. Once all tiles are turned over, the game is won.
 </p>
@@ -132,22 +132,22 @@ It would be useful to use a "for" loop in Javascript for this game. Here's a bas
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #75715E;">// </span><span style="color: #75715E;">here's our array again</span>
-<span style="color: #F92672;">var</span> <span style="color: #FD971F;">myArray</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">"apples"</span>, <span style="color: #E6DB74;">"oranges"</span>, <span style="color: #E6DB74;">"pears"</span>, <span style="color: #E6DB74;">"apricots"</span><span style="color: #AE81FF;">]</span>;
+<pre class="src src-js"><span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">here's our array again</span>
+<span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">myArray</span> = <span style="color: #3a81c3;">[</span><span style="color: #2d9574;">"apples"</span>, <span style="color: #2d9574;">"oranges"</span>, <span style="color: #2d9574;">"pears"</span>, <span style="color: #2d9574;">"apricots"</span><span style="color: #3a81c3;">]</span>;
 
-<span style="color: #75715E;">// </span><span style="color: #75715E;">this "for" loop goes through the array</span>
-<span style="color: #75715E;">// </span><span style="color: #75715E;">and prints each one to the console</span>
-<span style="color: #F92672;">for</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">var</span> <span style="color: #FD971F;">i</span> = <span style="color: #AE81FF;">0</span>; i &lt; myArray.length; i++<span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
-  console.log<span style="color: #66D9EF;">(</span>myArray<span style="color: #A6E22E;">[</span>i<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span>;
-<span style="color: #AE81FF;">}</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">this "for" loop goes through the array</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">and prints each one to the console</span>
+<span style="color: #3a81c3; font-weight: bold;">for</span> <span style="color: #3a81c3;">(</span><span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">i</span> = <span style="color: #4e3163;">0</span>; i &lt; myArray.length; i++<span style="color: #3a81c3;">)</span> <span style="color: #3a81c3;">{</span>
+  console.log<span style="color: #6c3163;">(</span>myArray<span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span><span style="color: #6c3163;">)</span>;
+<span style="color: #3a81c3;">}</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga774e91" class="outline-3">
-<h3 id="orga774e91">Tic-tac-toe</h3>
-<div class="outline-text-3" id="text-orga774e91">
+<div id="outline-container-orgabe66fc" class="outline-3">
+<h3 id="orgabe66fc">Tic-tac-toe</h3>
+<div class="outline-text-3" id="text-orgabe66fc">
 <p>
 Implement a game of "tic-tac-toe" (otherwise known as "noughts and crosses"). The rules are described <a href="https://en.wikipedia.org/wiki/Tic-tac-toe">here</a>.
 </p>

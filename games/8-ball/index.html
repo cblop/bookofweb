@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Magic 8-ball</title></head>
+    <body>
+        <h1>Magic 8-ball</h1>
+        <img width="200px" src="8-ball.jpg" onclick="showMessage()">
+
+        <p id="message"></p>
+
+        <script>
+         function showMessage() {
+             var messageArray = ["Yes", "No", "Maybe", "I don't know", "Can you repeat the question?"];
+
+             var rand = Math.floor(Math.random() * messageArray.length);
+
+             document.getElementById("message").innerHTML = messageArray[rand];
+         }
+        </script>
+    </body>
+</html>
