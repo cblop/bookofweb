@@ -60,13 +60,13 @@ for the JavaScript code in this tag.
 <h1 class="title">CodeLab I, Workshop 20</h1>
 </header><br>
 
-<div id="outline-container-org1917db7" class="outline-2">
-<h2 id="org1917db7">Javascript Game Challenge</h2>
-<div class="outline-text-2" id="text-org1917db7">
+<div id="outline-container-org9aac52d" class="outline-2">
+<h2 id="org9aac52d">Javascript Game Challenge</h2>
+<div class="outline-text-2" id="text-org9aac52d">
 </div>
-<div id="outline-container-org06ab22c" class="outline-3">
-<h3 id="org06ab22c">Magic 8-Ball</h3>
-<div class="outline-text-3" id="text-org06ab22c">
+<div id="outline-container-orgce6ea43" class="outline-3">
+<h3 id="orgce6ea43">Magic 8-Ball</h3>
+<div class="outline-text-3" id="text-orgce6ea43">
 <p>
 Magic 8-balls are toys that are designed to help people make decisions. You ask a question, shake the ball, and it gives you a positive or negative answer.
 </p>
@@ -93,9 +93,9 @@ console.log<span style="color: #AE81FF;">(</span>myArray<span style="color: #66D
 </div>
 </div>
 
-<div id="outline-container-orgd30fdd5" class="outline-3">
-<h3 id="orgd30fdd5">Rock, Paper, Scissors</h3>
-<div class="outline-text-3" id="text-orgd30fdd5">
+<div id="outline-container-org8ea7267" class="outline-3">
+<h3 id="org8ea7267">Rock, Paper, Scissors</h3>
+<div class="outline-text-3" id="text-org8ea7267">
 <p>
 Create a game of "rock, paper, scissors" in Javascript. There should be three buttons or images on the page: "rock", "paper", and "scissors". The player clicks on one, and the computer randomly chooses a response. The winner is then determined through these rules:
 </p>
@@ -108,6 +108,51 @@ Create a game of "rock, paper, scissors" in Javascript. There should be three bu
 
 <p>
 For added fun, try implementing a "best 2 of 3" or "best 3 of 5" mode.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgce8d92b" class="outline-3">
+<h3 id="orgce8d92b">Snap</h3>
+<div class="outline-text-3" id="text-orgce8d92b">
+<p>
+Make a game with some number of tiles (maybe 25) that you click to turn over. When two are turned over, the game checks to see if they match. If they do, the tiles stay turned over or turn a different colour. Once all tiles are turned over, the game is won.
+</p>
+
+<p>
+The tiles could be <code>&lt;td&gt;</code> elements in a table, coloured with CSS, that contain images when clicked. Or you could use a separate image for the back of the cards.
+</p>
+
+<p>
+You should implement a counter to count how many clicks it takes the player to solve the game.
+</p>
+
+<p>
+It would be useful to use a "for" loop in Javascript for this game. Here's a basic example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #75715E;">// </span><span style="color: #75715E;">here's our array again</span>
+<span style="color: #F92672;">var</span> <span style="color: #FD971F;">myArray</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">"apples"</span>, <span style="color: #E6DB74;">"oranges"</span>, <span style="color: #E6DB74;">"pears"</span>, <span style="color: #E6DB74;">"apricots"</span><span style="color: #AE81FF;">]</span>;
+
+<span style="color: #75715E;">// </span><span style="color: #75715E;">this "for" loop goes through the array and prints each one to the console</span>
+<span style="color: #F92672;">for</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">var</span> <span style="color: #FD971F;">i</span> = <span style="color: #AE81FF;">0</span>; i &lt; myArray.length; i++<span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  console.log<span style="color: #66D9EF;">(</span>myArray<span style="color: #A6E22E;">[</span>i<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span>;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga2d9cee" class="outline-3">
+<h3 id="orga2d9cee">Tic-tac-toe</h3>
+<div class="outline-text-3" id="text-orga2d9cee">
+<p>
+Implement a game of "tic-tac-toe" (otherwise known as "noughts and crosses"). The rules are described <a href="https://en.wikipedia.org/wiki/Tic-tac-toe">here</a>.
+</p>
+
+<p>
+The simplest way to do this is to create a table of square <code>&lt;td&gt;</code> elements that fill alternately with "O" and "X" when clicked. The tricky part is working out when a winning combination has been played, though. Good luck!
 </p>
 </div>
 </div>

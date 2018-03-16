@@ -32,7 +32,27 @@ Create a game of "rock, paper, scissors" in Javascript. There should be three bu
 
 For added fun, try implementing a "best 2 of 3" or "best 3 of 5" mode.
 
-# ** Snap
-# Make a game with some number of tiles (maybe 25) that you click to turn over. When turned over, 
+** Snap
+Make a game with some number of tiles (maybe 25) that you click to turn over. When two are turned over, the game checks to see if they match. If they do, the tiles stay turned over or turn a different colour. Once all tiles are turned over, the game is won.
 
-# ** Tic-tac-toe
+The tiles could be ~<td>~ elements in a table, coloured with CSS, that contain images when clicked. Or you could use a separate image for the back of the cards.
+
+You should implement a counter to count how many clicks it takes the player to solve the game.
+
+It would be useful to use a "for" loop in Javascript for this game. Here's a basic example:
+
+#+BEGIN_SRC js
+// here's our array again
+var myArray = ["apples", "oranges", "pears", "apricots"];
+
+// this "for" loop goes through the array and prints each one to the console
+for (var i = 0; i < myArray.length; i++) {
+  console.log(myArray[i]);
+}
+#+END_SRC
+
+** Tic-tac-toe
+
+Implement a game of "tic-tac-toe" (otherwise known as "noughts and crosses"). The rules are described [[https://en.wikipedia.org/wiki/Tic-tac-toe][here]].
+
+The simplest way to do this is to create a table of square ~<td>~ elements that fill alternately with "O" and "X" when clicked. The tricky part is working out when a winning combination has been played, though. Good luck!
