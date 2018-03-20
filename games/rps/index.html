@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+    <head><title>Rock Paper Scissors</title></head>
+    <h1>Rock, Paper, Scissors</h1>
+
+    <button onclick="play('rock')">Rock</button>
+    <button onclick="play('paper')">Paper</button>
+    <button onclick="play('scissors')">Scissors</button>
+
+    <p id="response"></p>
+
+    <script>
+     function play(playerMove) {
+         var choices = ["rock", "paper", "scissors"];
+         var rand = Math.floor(Math.random() * choices.length);
+
+         var computerMove = choices[rand];
+         var outcome = "";
+
+         if (computerMove === "rock") {
+             if (playerMove === "rock") {
+                 outcome = "Draw!";
+             } else if (playerMove === "scissors") {
+                 outcome = "Lose!";
+             } else {
+                 outcome = "Win!";
+             }
+
+         } else if (computerMove === "scissors") {
+             if (playerMove === "rock") {
+                 outcome = "Win!";
+             } else if (playerMove === "scissors") {
+                 outcome = "Draw!";
+             } else {
+                 outcome = "Lose!";
+             }
+
+         } else { // computer chooses paper
+
+             if (playerMove === "rock") {
+                 outcome = "Lose!";
+             } else if (playerMove === "scissors") {
+                 outcome = "Win!";
+             } else {
+                 outcome = "Draw!";
+             }
+
+         }
+
+         var message = computerMove + ": You " + outcome;
+
+         document.getElementById("response").innerHTML = message;
+
+
+     }
+     
+    </script>
+
+</html>
