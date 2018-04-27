@@ -1,0 +1,26 @@
+body {
+    font-family: monospace;
+    font-size: 15pt;
+}
+#container {
+    /* margin-left: 50%; */
+    /* margin-top: 20px; */
+    /* transform: translate(-50%, 0%); */
+}
+#brush {
+}
+.tool {
+    float: left;
+    margin: 0 10px;
+    padding: 0 5px;
+    border: 1px solid black;
+}
+#toolbar {
+    /* margin-left: 25%; */
+    margin-top: 10px;
+    text-align: center;
+}
+img {
+    padding: 10px;
+    width: 50px;
+}
