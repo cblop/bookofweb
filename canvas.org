@@ -5,7 +5,7 @@
 
 This week's challenge is to create a fully-functional painting tool in HTML canvas using JavaScript.
 
-Have a look at this [[file:canvas/painter/painter.html][example]] to see the kind of thing you can make. This example implements the very basics of a painting tool, including:
+Have a look at this [[http://web.codeuntangled.com/canvas/painter/painter.html][example]] to see the kind of thing you can make. This example implements the very basics of a painting tool, including:
 
 - ability to change the brush shape
 - sliders to change the colour and opacity of the brush
