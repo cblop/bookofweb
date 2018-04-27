@@ -1,0 +1,20 @@
+#+TITLE:CodeLab I
+#+HTML:<br>
+
+* Week 23 workshop: Canvas Painter Challenge
+
+This week's challenge is to create a fully-functional painting tool in HTML canvas using JavaScript.
+
+Have a look at this [[file:canvas/painter/painter.html][example]] to see the kind of thing you can make. This example implements the very basics of a painting tool, including:
+
+- ability to change the brush shape
+- sliders to change the colour and opacity of the brush
+- sliders to change the width and height of the brush
+
+To learn how to use sliders, have a look at [[https://www.w3schools.com/howto/howto_js_rangeslider.asp][this tutorial]].
+
+This simple demo is limited to drawing just two brushes: ellipses (using the ellipse() function instead of arc()) and rectangles. See if you can extend it to draw some more creative brush styles.
+
+Also, the demo just draws a shape every time you click on the canvas. See if you can implement a feature to click and drag to paint properly. You can also experiment with adding line-drawing functionality.
+
+Good luck, and have fun!

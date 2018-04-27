@@ -17,6 +17,10 @@
 # #+END_SRC
 
 ** Create your tables
+   :PROPERTIES:
+   :CUSTOM_ID: create-table
+   :END:
+
 
 Because we are creating a database for *films*, it makes sense to have a film table. For now, our film table will have attributes for:
 

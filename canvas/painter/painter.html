@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML Canvas Painter</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body>
+        <div id="container">
+            <canvas id="myCanvas" width="1024" height="768" style="border:1px solid #000000;"></canvas>
+            <div id="toolbar">
+                <div id="brush" class="tool">
+                    BRUSH
+                    <br>
+                    <img id="circle" src="circle.png" onclick="changeBrush('circle')" />
+                    <img id="rectangle" src="rectangle.png" onclick="changeBrush('rectangle')" />
+                </div>
+                <div id="colour" class="tool">
+                    COLOUR
+                    <br>
+                    R <input type="range" min="0" max="255" value="255" class="slider" id="red">
+                    <br>
+                    G <input type="range" min="0" max="255" value="0" class="slider" id="green">
+                    <br>
+                    B <input type="range" min="0" max="255" value="0" class="slider" id="blue">
+                    <br>
+                    A <input type="range" min="0" max="1" step="0.1" value="1" class="slider" id="opacity">
+                    <br>
+                </div>
+                <div id="size" class="tool">
+                    SIZE
+                    <br>
+                    W <input type="range" min="0" max="600" value="100" class="slider" id="width">
+                    <br>
+                    H <input type="range" min="0" max="600" value="100" class="slider" id="height">
+                    <br>
+                </div>
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+
+
+</html>

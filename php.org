@@ -490,15 +490,36 @@ It's easy enough to create a new database using a web interface to MySQL such as
 $dbname = "films";
 
 $sql = "CREATE DATABASE $dbname;";
+
+if(mysqli_query($connection, $sql)) {
+    echo "Table successfully created";
+} else {
+    echo "ERROR: Could not execute $sql. " . mysqli_error($connection);
+}
 #+END_SRC
 
+It's worth noting that ~$sql~ is just a *string*. It doesn't actually /do/ anything - we need to send it to the MySQL database for it to have any effect. This is what the ~mysqli_query~ command introduced earlier does. Again, we've wrapped it in an ~if~ statement to see if it works, and print out any errors that occur if it fails. The ~$connection~ variable refers to the database connection established earlier (see [[id:php_mysql]["Connecting to a MySQL database in PHP"]]).
 
 The full code for creating a new database is in [[file:code/3_create_database.php][this file]].
 
 ** Creating a new table
 
-#+BEGIN_SRC php
+To create a new table in your database, connect to it first (see [[id:php_mysql]["Connecting to a MySQL database in PHP"]]). Then create a string with the SQL code for creating a table (described in [[file:mysql.org::**Create%20your%20tables]["Create your tables"]] in the MySQL chapter). Using the same code from that chapter, we can create our table from PHP instead:
 
+#+BEGIN_SRC php
+$sql = "CREATE TABLE film (
+  id INT AUTO_INCREMENT NOT NULL,
+  title VARCHAR(255),
+  genre VARCHAR(255),
+  running_length int,
+  PRIMARY KEY (id)
+);";
+
+if(mysqli_query($connection, $sql)) {
+    echo "Table successfully created";
+} else {
+    echo "ERROR: Could not execute $sql. " . mysqli_error($connection);
+}
 #+END_SRC
 
 The full code for creating a table inside a database is [[file:code/4_create_table.php][here]].
