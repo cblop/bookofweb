@@ -1,0 +1,20 @@
+#+TITLE:CodeLab I
+#+HTML:<br>
+
+* Week 24 workshop: Canvas Animation Challenge
+
+This week, I would like you to use your Canvas animation skills to create an animated scene of some kind. At the very least, see if you can re-create this landscape:
+
+[[file:sunrise.gif]]
+
+Please note the things you have to implement:
+
+- a line-based shape for the mountains
+- a circle for the sun, that moves up and down and changes colour
+- a sky that dims as the sun sets
+- clouds that move back and forth behind the mountains, but in front of the sun
+
+This is very much possible with everything you've learned so far!
+
+If you are feeling adventurous, try adding extra features (such as cows, people, etc). If you like, you could also come up with your own completely original animated scene.
+
